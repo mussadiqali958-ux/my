@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<meta name="theme-color" content="#f9f5ee" />
+<meta name="description" content="A special invitation to a Walima reception in Lahore." />
+<meta property="og:title" content="You're Invited · A Lahore Walima" />
+<meta property="og:description" content="Open the envelope to discover our celebration." />
+<title>Ayesha & Hamza · Walima Invitation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root{--paper:#fcf9f3;--paper2:#f5ece0;--gold:#b68b48;--gold2:#d7bd82;--ink:#67513b;--moss:#7d8973;--taupe:#b8a18a;--serif:'Cormorant Garamond',Georgia,serif;--script:'Great Vibes','Z003','URW Chancery L',cursive;--sans:'Jost',Arial,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 26% 17%,#d9c7ad,#ad9477 75%);color:var(--ink);font-family:var(--serif);font-size:18px}body.gate-locked{overflow:hidden}
+button,a{font:inherit}a{color:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,canvas:focus-visible{outline:3px solid #6d7f71;outline-offset:4px}
+.shell{position:relative;max-width:440px;min-height:100svh;margin:auto;background:var(--paper);overflow:hidden;box-shadow:0 15px 70px #382b2099;isolation:isolate}
+.paper{position:relative;background-color:var(--paper);background-image:radial-gradient(#c6a87924 .65px,transparent .75px),radial-gradient(#fff9 1px,transparent 1px);background-position:0 0,7px 6px;background-size:18px 18px,22px 22px}
+.section{position:relative;overflow:hidden;text-align:center;padding:70px 28px 76px;isolation:isolate}
+.eyebrow{font-family:var(--sans);font-size:10px;letter-spacing:3.1px;text-transform:uppercase;font-weight:500;color:#ab8a56}.tiny{font-family:var(--sans);font-size:11px;letter-spacing:1.45px;line-height:1.9;color:#987b58}.script-title{font-family:var(--script);font-weight:400;font-size:clamp(48px,13vw,73px);line-height:1.16;margin:10px 0 0;color:#a77e45}.section-title{font-size:43px;line-height:1.12;font-weight:500;margin:4px 0 15px;color:#8d704b}
+.divider{display:flex;justify-content:center;align-items:center;gap:12px;color:#c6a36c;font-size:17px;margin:16px auto 22px}.divider:before,.divider:after{content:"";height:1px;width:68px;background:linear-gradient(90deg,transparent,#c8ac7a)}.divider:after{transform:rotate(180deg)}
+.floral{position:absolute;z-index:1;width:175px;height:175px;pointer-events:none;opacity:.92}.floral.top-left{top:0;left:-23px}.floral.top-right{top:0;right:-23px;transform:scaleX(-1)}.floral.bottom-left{bottom:0;left:-23px;transform:scaleY(-1)}.floral.bottom-right{bottom:0;right:-23px;transform:scale(-1)}
+/* ANIMATED ENVELOPE: tap seal -> flap lifts -> golden light -> page */
+.gate{position:absolute;inset:0 0 auto;z-index:80;height:100svh;min-height:620px;background:#f7f0e8;overflow:hidden;display:flex;align-items:center;justify-content:center;perspective:1100px;transform-style:preserve-3d;transition:opacity .65s,visibility .65s}
+.gate.finished{opacity:0;visibility:hidden;pointer-events:none}.gate.again{opacity:1;visibility:visible;pointer-events:auto;transition:none}.gate.again .envelope-top{transform:none}.gate.again .wax{opacity:1;transform:translate(-50%,-50%) scale(1)}.gate.again .gold-light{opacity:0}
+.envelope{position:absolute;inset:0;overflow:hidden;background:linear-gradient(140deg,#fffdf9,#f0e6db 67%,#fffdfa);box-shadow:inset 0 0 85px #d2bda737}
+.envelope:before{content:"";position:absolute;inset:16px;border:1px solid #d8c2a755;z-index:5;pointer-events:none}
+.envelope:after{content:"";position:absolute;inset:25px;border:1px solid #d8c2a73a;z-index:5;pointer-events:none}
+.emboss{position:absolute;width:80%;height:35%;left:10%;opacity:.42;pointer-events:none;filter:drop-shadow(1px 2px 1px #d4c4b8);background-repeat:no-repeat;background-position:center;background-size:contain}
+.emboss.top{top:11%}.emboss.bottom{bottom:9%;transform:rotate(180deg)}
+.fold-left,.fold-right,.fold-bottom,.envelope-top{position:absolute;inset:0}
+.fold-left{background:linear-gradient(110deg,#f1e6db 5%,#fffcf7 49%,#e7dace);clip-path:polygon(0 4%,50% 50%,0 96%);filter:drop-shadow(3px 0 3px #bcb0a7);z-index:5}
+.fold-right{background:linear-gradient(250deg,#f5ebe2,#fffaf2 50%,#e9ded3);clip-path:polygon(100% 4%,50% 50%,100% 96%);z-index:5}
+.fold-bottom{background:linear-gradient(0deg,#fffaf4,#ede2d8);clip-path:polygon(0 100%,50% 50%,100% 100%);z-index:6}
+.envelope-top{z-index:7;transform-origin:center 18%;backface-visibility:hidden;background:linear-gradient(165deg,#fffefa,#efe4d9 88%);clip-path:polygon(0 0,100% 0,50% 50%);filter:drop-shadow(0 4px 3px #bbaa9766);transition:transform 1.25s cubic-bezier(.2,.8,.2,1),opacity .2s 1.2s}
+.gate.opening .envelope-top{transform:rotateX(175deg) translateY(-5px);opacity:0}
+.gold-light{position:absolute;inset:0;z-index:9;opacity:0;pointer-events:none;background:radial-gradient(ellipse at 50% 50%,#fffdfa,#ffdda5ad 14%,#f8c26677 35%,transparent 68%);mix-blend-mode:screen;transition:opacity .4s}.gate.opening .gold-light{opacity:1;animation:glow 1.7s ease-out forwards}@keyframes glow{0%{opacity:0;transform:scale(.4)}54%{opacity:1;transform:scale(1.08)}100%{opacity:.65;transform:scale(1.5)}}
+.wax{position:absolute;z-index:15;top:50%;left:50%;transform:translate(-50%,-50%);border:1px solid #d9bd82;width:100px;height:100px;border-radius:50%;background:radial-gradient(circle at 35% 25%,#fffef9 0,#f3e7d4 62%,#dbbf92 100%);box-shadow:0 0 0 4px #fff9e9,0 0 0 6px #d8bd8b,0 5px 18px #6553405c,inset 0 2px 8px #ffffff;display:flex;align-items:center;justify-content:center;color:#ad8651;transition:opacity .28s,transform .55s;animation:sealPulse 2.6s ease-in-out infinite}
+.wax:before{content:"";position:absolute;inset:8px;border:1px solid #d8bd89;border-radius:50%}.wax:after{content:"✦";position:absolute;bottom:9px;font-size:10px}.monogram{font-family:var(--script);font-size:39px;line-height:1;margin-top:-9px;margin-left:-8px}.gate.opening .wax{opacity:0;transform:translate(-50%,-50%) scale(1.42);animation:none;pointer-events:none}@keyframes sealPulse{50%{box-shadow:0 0 0 5px #fff9e9,0 0 0 8px #d8bd8b,0 5px 29px #d9b77f,inset 0 2px 8px #ffffff}}
+.gate-hint{z-index:16;position:absolute;bottom:48px;text-align:center;width:100%;font-family:var(--sans);font-size:11px;text-transform:uppercase;letter-spacing:2.4px;color:#9e886f;animation:fadePulse 2.5s infinite}.gate.opening .gate-hint{opacity:0}.gate-hint span{display:block;font-family:var(--script);font-size:35px;letter-spacing:0;text-transform:none;color:var(--gold);margin-bottom:2px}@keyframes fadePulse{50%{opacity:.45}}
+/* HERO */
+.hero{height:min(870px, max(790px, 100svh));min-height:750px;background:linear-gradient(180deg,#fbf6ed,#ede1d4 75%,#fffaf2);padding:0;display:flex;align-items:center;flex-direction:column}
+.hero .hero-scene{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.hero-copy{position:relative;z-index:3;width:100%;padding:81px 32px 0;text-shadow:0 1px #fff9}.hero-copy .eyebrow{font-size:9px;letter-spacing:2.45px}.arabic-en{font-style:italic;font-size:15px;color:#9c835c;margin:12px 0 22px;line-height:1.35}
+.hero h1{font-family:var(--script);font-size:clamp(70px,19vw,93px);line-height:.9;font-weight:400;margin:14px auto 4px;color:#9c7847;text-shadow:0 3px 8px #fff9}.hero-subtitle{font-size:16px;letter-spacing:1.5px;font-style:italic;margin:12px 0 6px;color:#907657}.hero-names{font-family:var(--script);font-size:clamp(48px,14vw,69px);line-height:1.08;margin:4px 0 12px;color:#8b633f}.hero-names small{font-size:.53em;padding:0 8px}.hero-date{font-family:var(--sans);font-size:11px;letter-spacing:2.1px;margin-top:14px;color:#9b7750}
+.scroll-down{position:absolute;z-index:4;bottom:24px;left:0;right:0;text-align:center;color:#9b7d55;font-family:var(--script);font-size:28px}.scroll-down:after{content:"⌄";display:block;font-family:var(--serif);font-size:29px;margin-top:-11px;animation:bob 1.7s ease-in-out infinite}@keyframes bob{50%{transform:translateY(7px)}}
+/* DATE SCRATCH AREA */
+.date-section{padding-top:90px;padding-bottom:95px;background:linear-gradient(#fffaf6,#fffcf8)}.date-section h2{margin:3px 0}.scratch-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;max-width:350px;margin:33px auto 16px}.scratch-card{position:relative;height:118px;border:1px solid #d9c7a5;border-radius:3px;overflow:hidden;background:#fcf5ea;box-shadow:0 4px 12px #8c6b4920,inset 0 0 0 4px #fffaf0}.scratch-reveal{display:flex;align-items:center;justify-content:center;flex-direction:column;height:100%;gap:2px}.scratch-reveal b{font-weight:500;font-size:27px;line-height:1.1;color:#9f7946}.scratch-reveal span{font-family:var(--sans);font-size:9px;letter-spacing:1.6px;color:#a88b63}.scratch-card canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:crosshair}.scratch-card.revealed canvas{opacity:0;transition:opacity .6s;pointer-events:none}.scratch-note{color:#aa916b;font-style:italic;font-size:17px;margin:12px 0 19px}.reveal-button,.outline-btn{display:inline-flex;gap:8px;align-items:center;justify-content:center;min-height:39px;padding:9px 19px;border:1px solid #bda371;background:transparent;color:#9a7749;font-family:var(--sans);font-size:10px;letter-spacing:1.6px;text-transform:uppercase;transition:background .2s}.reveal-button:hover,.outline-btn:hover{background:#faf0e2}.revealed-date{opacity:0;transform:translateY(10px);transition:.75s;min-height:39px;font-style:italic;color:#9b7a4f;margin-top:18px}.revealed-date.show{opacity:1;transform:none}.sparkle-line{font-family:var(--script);font-size:35px;color:#c5a36b;margin:26px 0 0}
+/* CEREMONY INVITE */
+.invite-section{padding-top:72px;padding-bottom:85px;background:linear-gradient(#fffaf5,#fbf7f0)}.invite-arch{position:relative;min-height:515px;margin:15px auto 0;max-width:348px;padding:106px 33px 61px;isolation:isolate}
+.arch-svg{position:absolute;inset:0;width:100%;height:100%;z-index:-1;filter:drop-shadow(0 3px 5px #bca77b2a)}.inviting{font-size:14px;line-height:1.5;font-style:italic;color:#98836a;margin:12px 0}.arch-names{font:400 48px/1.1 var(--script);margin:14px auto;color:#966f42}.arch-names span{font:italic 25px var(--serif);display:block;color:#ad936c;margin:2px}.arch-body{font-size:16px;line-height:1.7;margin:14px auto;color:#7f6a55}.arch-small{font:400 11px/1.7 var(--sans);letter-spacing:1.2px;color:#9c8667}.arch-ornament{color:#bc9e6c;font-size:24px;margin:14px auto 5px}
+/* SCHEDULE */
+.program-section{padding-top:78px;padding-bottom:86px}.program{margin:28px auto 0;max-width:350px;position:relative}.program:before{content:"";position:absolute;top:0;bottom:0;left:50%;width:1px;background:linear-gradient(transparent,#bda16b 12%,#bda16b 85%,transparent)}.event{min-height:125px;display:grid;grid-template-columns:1fr 34px 1fr;align-items:center;text-align:left}.event:nth-child(even) .event-copy{grid-column:3;grid-row:1}.event:nth-child(even) .event-art{grid-column:1;grid-row:1}.event-copy{grid-column:1;max-width:135px;text-align:center}.event-art{grid-column:3;text-align:center;align-self:center;color:#b99d63;font-size:46px;filter:drop-shadow(1px 3px 2px #ddcaac)}.event:nth-child(even) .event-copy{text-align:center}.event .node{grid-column:2;grid-row:1;justify-self:center;width:7px;height:7px;border:1px solid #bfa16b;background:#fffaf1;border-radius:100%;z-index:2}.event-time{font:italic 21px var(--serif);color:#a07f50;margin:0}.event-label{font:600 12px/1.6 var(--sans);color:#9c8568;letter-spacing:1px;margin:2px 0}
+/* COUNTDOWN */
+.countdown-section{padding-top:58px;padding-bottom:77px;background:linear-gradient(180deg,#fffdfa,#f8eee1)}.countdown-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;max-width:350px;margin:24px auto}.count-box{background:#fffdf8;border-top:1px solid #d2bd93;border-bottom:1px solid #d2bd93;padding:14px 4px;box-shadow:0 3px 8px #9d794419}.count-box strong{display:block;font:500 31px var(--serif);color:#a38455}.count-box span{font:400 9px var(--sans);text-transform:uppercase;letter-spacing:1.1px;color:#a58b65}
+/* VENUE */
+.venue-section{padding-top:80px;padding-bottom:85px}.venue-illustration{display:block;width:100%;max-width:400px;margin:14px auto 5px;filter:drop-shadow(0 4px 7px #9a866526)}.venue-name{font-size:33px;line-height:1.08;margin:14px auto 8px;font-weight:500;color:#8b7152}.venue-address{font-family:var(--serif);font-style:italic;line-height:1.5;margin:0 auto 25px;color:#8d765c}.map-frame{height:250px;overflow:hidden;border:7px solid white;box-shadow:0 4px 18px #b79a703a;background:#eee5d7;margin:18px auto;max-width:354px;position:relative}.map-frame iframe{width:100%;height:100%;border:0}.map-fallback{position:absolute;inset:0;background:repeating-linear-gradient(0deg,#f3efe7 0 27px,#e5e3d9 28px 31px),repeating-linear-gradient(90deg,transparent 0 45px,#dfded5 45px 49px);z-index:-1}.map-fallback:after{content:'✦  Lahore';position:absolute;left:35%;top:41%;padding:10px;color:#a37d50;background:#fffdf4}.venue-actions{display:flex;flex-direction:column;align-items:center;gap:11px;margin-top:20px}.gold-btn{background:linear-gradient(110deg,#ab874a,#d1b47a,#ad884d);border:0;color:white;min-height:45px;padding:13px 28px;text-decoration:none;font:500 11px var(--sans);letter-spacing:1.8px;text-transform:uppercase;box-shadow:0 4px 13px #af895f42;display:inline-flex;align-items:center;justify-content:center;gap:9px;transition:transform .2s}.gold-btn:hover{transform:translateY(-2px)}
+/* DRESS CODE & CLOSE */
+.dress-section{padding-top:72px;padding-bottom:93px}.fashion-figures{width:100%;max-width:300px;display:block;margin:22px auto 5px;opacity:.87}.dress-section p{font-style:italic;font-size:17px;line-height:1.6;margin:8px auto;max-width:290px}.palette{display:flex;gap:6px;justify-content:center;margin:28px auto 8px}.dot{width:27px;height:27px;border:1px solid #cbbca2;border-radius:100%;box-shadow:inset 0 0 0 3px #fff8}.palette-label{font-size:14px;color:#ac916e}.closing-section{padding-top:50px;padding-bottom:86px;background:linear-gradient(#fffaf4,#f1e6d7)}.closing-section h2{font:400 56px var(--script);color:#9e7746;margin:0}.closing-section p{font-style:italic;color:#907555;line-height:1.6;margin:12px 0 24px}.footnote{font:9px var(--sans);letter-spacing:1.6px;color:#b19a7a;margin-top:27px}.replay{border:0;background:none;color:#aa895a;text-decoration:underline;text-underline-offset:4px;font-family:var(--sans);text-transform:uppercase;letter-spacing:1px;font-size:10px;cursor:pointer;margin:14px}
+/* Floating music button like recording */
+.music{position:fixed;right:max(16px,calc((100vw - 440px)/2 + 16px));bottom:27px;z-index:51;width:48px;height:48px;border-radius:50%;border:2px solid #fff6d9;background:linear-gradient(145deg,#e7c25b,#c9a045);box-shadow:0 4px 17px #6f553e4f;display:flex;align-items:center;justify-content:center;color:white;transition:transform .2s}.music[hidden]{display:none}.music:hover{transform:scale(1.08)}.music svg{width:22px;height:22px}.music .playing-icon{display:none}.music.is-playing .playing-icon{display:block}.music.is-playing .muted-icon{display:none}
+.reveal{opacity:0;transform:translateY(23px);transition:opacity .85s ease,transform .85s ease}.reveal.visible{opacity:1;transform:translateY(0)}
+/* Tiny visual accents */
+.lanterns{position:absolute;top:143px;left:4px;right:4px;z-index:2;display:flex;justify-content:space-between;pointer-events:none}.lantern{width:30px;height:91px;animation:swing 5s ease-in-out infinite alternate;transform-origin:top}.lantern:last-child{animation-delay:1.6s}@keyframes swing{to{transform:rotate(6deg)}}
+@media(max-width:355px){.section{padding-left:18px;padding-right:18px}.hero-copy{padding-left:16px;padding-right:16px}.hero h1{font-size:72px}.hero-names{font-size:46px}.scratch-row{gap:6px}.scratch-card{height:110px}.invite-arch{padding-left:22px;padding-right:22px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal,.envelope-top,.gate,.gold-light,.wax{transition-duration:.01ms!important;animation:none!important}.scroll-down:after,.lantern{animation:none!important}}
+</style>
+</head>
+<body class="gate-locked">
+<!-- Reusable original vector bouquets. All graphics here are newly composed for this invitation. -->
+<svg aria-hidden="true" width="0" height="0" style="position:absolute;overflow:hidden">
+ <defs>
+ <linearGradient id="goldstroke" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f4dfa8"/><stop offset=".46" stop-color="#b38c4d"/><stop offset="1" stop-color="#e2c790"/></linearGradient>
+ <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fff9ed"/><stop offset=".58" stop-color="#e9dbcb"/><stop offset="1" stop-color="#cbb49d"/></linearGradient>
+ <linearGradient id="ivorySilk" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fffaf2"/><stop offset=".52" stop-color="#d4bb8e"/><stop offset="1" stop-color="#f8ebdc"/></linearGradient>
+ <radialGradient id="flowerFill"><stop stop-color="#e4c98d"/><stop offset=".22" stop-color="#fff5e8"/><stop offset=".8" stop-color="#faeee4"/><stop offset="1" stop-color="#cbb18e"/></radialGradient>
+ <symbol id="flower" viewBox="-30 -30 60 60">
+ <g fill="url(#flowerFill)" stroke="#d6c3ad" stroke-width=".7"><ellipse cy="-11" rx="8" ry="17"/><ellipse cy="-11" rx="8" ry="17" transform="rotate(45)"/><ellipse cy="-11" rx="8" ry="17" transform="rotate(90)"/><ellipse cy="-11" rx="8" ry="17" transform="rotate(135)"/><ellipse cy="-11" rx="8" ry="17" transform="rotate(180)"/><ellipse cy="-11" rx="8" ry="17" transform="rotate(225)"/><ellipse cy="-11" rx="8" ry="17" transform="rotate(270)"/><ellipse cy="-11" rx="8" ry="17" transform="rotate(315)"/></g><circle r="5.5" fill="#d0aa69"/><circle r="2.5" fill="#fff2cd"/>
+ </symbol>
+ <symbol id="sprig" viewBox="0 0 180 180">
+ <g fill="none" stroke="#a2ab8a" stroke-width="1.5" opacity=".78"><path d="M-5 102Q47 120 81 49Q102 9 166 7"/><path d="M3 156Q65 112 80 91Q117 41 174 53"/><path d="M0 69Q40 77 69 30"/></g>
+ <g fill="#adb69a" fill-opacity=".76" stroke="#9ba88e" stroke-width=".7"><path d="M48 99Q18 91 14 72Q41 78 48 99Z"/><path d="M68 73Q54 47 62 35Q79 59 68 73Z"/><path d="M103 38Q98 15 111 7Q118 24 103 38Z"/><path d="M74 99Q90 103 106 79Q82 83 74 99Z"/><path d="M126 66Q127 39 150 35Q148 59 126 66Z"/><path d="M49 124Q43 148 22 155Q22 131 49 124Z"/><path d="M30 72Q16 53 4 48Q6 68 30 72Z"/></g>
+ <use href="#flower" x="4" y="37" width="66" height="66"/><use href="#flower" x="63" y="12" width="77" height="77"/><use href="#flower" x="105" y="70" width="50" height="50"/><use href="#flower" x="21" y="100" width="45" height="45"/>
+ <g fill="#e2cda6"><circle cx="145" cy="24" r="5"/><circle cx="155" cy="66" r="4"/><circle cx="17" cy="20" r="3"/><circle cx="92" cy="119" r="3"/></g>
+ </symbol>
+ <symbol id="ornate-bird" viewBox="0 0 140 180"><path d="M70 0V58" stroke="#a88957" stroke-width="1.6"/><path d="M52 62L70 51 88 62 91 114 72 135 49 115Z" fill="#fff1cd" stroke="#b59158" stroke-width="3"/><path d="M58 67L70 60 82 67 84 111 71 125 56 110Z" fill="#e3b9637c" stroke="#b59158"/><path d="M70 62V123M53 90H88" stroke="#b59158" stroke-width="2"/><path d="M62 145L70 135 78 145" fill="none" stroke="#b59158" stroke-width="2"/></symbol>
+ </defs>
+</svg>
+<main class="shell" id="shell">
+ <!-- ENVELOPE / tap on the wax seal -->
+ <div id="gate" class="gate" role="region" aria-label="Open your invitation">
+   <div class="envelope">
+    <svg class="emboss top" viewBox="0 0 340 200" aria-hidden="true"><g fill="none" stroke="#d4bfa9" stroke-width="1.5"><path d="M170 174C131 113 97 101 101 55C105 16 140 12 170 44C200 12 235 16 239 55C243 101 209 113 170 174Z"/><path d="M170 153C144 111 123 91 125 63C128 42 146 43 170 65C194 43 212 42 215 63C217 91 196 111 170 153Z"/><path d="M21 92C89 22 128 154 166 118M319 92C251 22 212 154 174 118"/><path d="M44 26C59 42 65 63 62 78M296 26C281 42 275 63 278 78"/></g><g fill="#d8c4ad" opacity=".6"><circle cx="170" cy="91" r="6"/><circle cx="86" cy="76" r="4"/><circle cx="254" cy="76" r="4"/><path d="M153 96Q130 64 148 54Q161 71 153 96M187 96Q210 64 192 54Q179 71 187 96"/></g></svg>
+    <svg class="emboss bottom" viewBox="0 0 340 200" aria-hidden="true"><g fill="none" stroke="#d4bfa9" stroke-width="1.5"><path d="M170 174C131 113 97 101 101 55C105 16 140 12 170 44C200 12 235 16 239 55C243 101 209 113 170 174Z"/><path d="M170 153C144 111 123 91 125 63C128 42 146 43 170 65C194 43 212 42 215 63C217 91 196 111 170 153Z"/><path d="M21 92C89 22 128 154 166 118M319 92C251 22 212 154 174 118"/><path d="M44 26C59 42 65 63 62 78M296 26C281 42 275 63 278 78"/></g></svg>
+    <div class="fold-left"></div><div class="fold-right"></div><div class="fold-bottom"></div><div class="envelope-top"></div>
+   </div>
+   <div class="gold-light"></div>
+   <button type="button" id="seal" class="wax" aria-label="Tap the seal to open your wedding invitation"><span class="monogram">A&amp;H</span></button>
+   <div class="gate-hint"><span>For you, with love</span>Tap the seal to open</div>
+ </div>
+ <!-- HERO WITH LAHORE LANDMARK ILLUSTRATION -->
+ <section class="hero section" id="hero" aria-label="Walima invitation welcome">
+  <svg class="hero-scene" viewBox="0 0 440 870" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Original gold Mughal arch, Lahore mosque skyline and a Pakistani wedding couple in formal traditional attire">
+   <rect width="440" height="870" fill="url(#sky)"/>
+   <g opacity=".4" fill="#fffdf4"><circle cx="30" cy="190" r="85"/><circle cx="409" cy="150" r="94"/></g>
+   <path d="M29 815V245Q29 208 53 195Q71 165 91 162Q102 134 128 129Q150 90 220 41Q290 90 312 129Q338 134 349 162Q369 165 387 195Q411 208 411 245V815Z" fill="#fff9ebaa" stroke="url(#goldstroke)" stroke-width="10"/>
+   <path d="M43 813V244Q43 213 65 206Q82 178 101 175Q117 142 141 140Q168 94 220 59Q272 94 299 140Q323 142 339 175Q358 178 375 206Q397 213 397 244V813Z" fill="#fff8eb39" stroke="#d1b182" stroke-width="2"/>
+   <path d="M60 818V272Q60 238 89 220Q101 197 129 181Q145 133 220 84Q295 133 311 181Q339 197 351 220Q380 238 380 272V818" fill="none" stroke="#e6d4b0" stroke-width="2"/>
+   <g opacity=".65" fill="#b8a48d" transform="translate(0 505)">
+     <rect x="5" y="155" width="430" height="124" fill="#cbb7a4"/>
+     <path d="M124 155V104H316V155Z" fill="#b9a48e"/><path d="M137 104Q154 48 220 40Q286 48 303 104Z" fill="#baa590"/>
+     <path d="M154 43Q172 7 220 -1Q268 7 286 43Z" fill="#b6a18a"/><path d="M219 -8V-29" stroke="#b69d84" stroke-width="4"/>
+     <rect x="76" y="121" width="60" height="82" fill="#baa38a"/><rect x="305" y="121" width="59" height="82" fill="#baa38a"/>
+     <path d="M88 121Q96 91 106 86Q117 93 124 121Z" fill="#b9a48e"/><path d="M314 121Q325 91 335 86Q346 93 353 121Z" fill="#b9a48e"/>
+     <path d="M79 65H99V157H79ZM341 65H361V157H341Z" fill="#ac967e"/><path d="M79 65Q86 36 89 25Q91 37 99 65ZM341 65Q349 36 351 25Q354 37 361 65Z" fill="#aa947d"/>
+     <g fill="#e8d8c4"><path d="M186 155V113Q194 97 206 113V155ZM211 155V112Q220 91 229 112V155ZM235 155V113Q246 97 254 113V155Z"/><rect x="100" y="148" width="15" height="26"/><rect x="326" y="148" width="15" height="26"/></g>
+   </g>
+   <g fill="#efe0ce" opacity=".55"><path d="M0 731Q107 686 220 720Q333 686 440 729V870H0Z"/><path d="M0 772Q107 755 220 790Q333 756 440 773V870H0Z"/></g>
+   <!-- Groom in ivory sherwani and bride in gold lehenga, silhouettes intentionally illustrative -->
+   <g transform="translate(146 649)">
+    <ellipse cx="72" cy="200" rx="108" ry="20" fill="#9f806154"/>
+    <g transform="translate(14 17)">
+     <ellipse cx="43" cy="15" rx="16" ry="20" fill="#8b6c54"/><path d="M29 8Q34 -8 44 -5Q60 -4 59 11" fill="#5d4d3f"/>
+     <path d="M29 37Q43 32 57 37L72 132L58 153L36 156L18 135Z" fill="#e2ccb0" stroke="#a98d6a" stroke-width="2"/>
+     <path d="M42 45L43 131M34 49L27 121M53 49L61 121" stroke="#b39366" stroke-width="1.4"/><path d="M27 135L23 186H39L44 137M57 137L62 186H76L64 134" fill="#a98763"/><path d="M28 44Q16 51 10 87L4 123" stroke="#c3aa8d" stroke-width="17" fill="none"/><path d="M58 44Q71 52 77 92L81 119" stroke="#ddc7a6" stroke-width="15" fill="none"/>
+    </g>
+    <g transform="translate(70 4)">
+     <ellipse cx="42" cy="28" rx="16" ry="21" fill="#b18c71"/><path d="M25 20Q27 0 44 1Q63 4 61 24L58 41Q52 12 26 26" fill="#614539"/>
+     <path d="M23 52L59 48L77 105Q109 142 128 190Q75 210 -12 190Q5 138 12 104Z" fill="url(#ivorySilk)" stroke="#b99d75" stroke-width="2"/>
+     <path d="M16 99Q40 111 70 99M1 156Q49 169 106 160M3 180Q51 191 116 182" stroke="#c69d63" stroke-width="1.5" fill="none"/>
+     <path d="M23 50Q-5 73 -4 120Q15 96 35 85Q67 87 94 129Q90 67 59 49Z" fill="#c6a77d88" stroke="#d7b88c" stroke-width="2"/>
+     <path d="M25 37Q1 40 -9 101Q25 73 47 74Q73 91 94 153Q93 51 61 35Z" fill="#e6d5bdb8" stroke="#ba946d" stroke-width="2"/>
+     <path d="M36 61Q58 66 70 84M21 102Q49 98 71 113" fill="none" stroke="#bba079" stroke-width="1"/>
+    </g>
+   </g>
+   <g opacity=".88"><use href="#sprig" x="0" y="80" width="153" height="178"/><use href="#sprig" x="287" y="80" width="153" height="178" transform="rotate(0 360 165)"/><use href="#sprig" x="-26" y="590" width="172" height="181"/><use href="#sprig" x="300" y="600" width="172" height="181"/></g>
+  </svg>
+  <div class="lanterns" aria-hidden="true"><svg class="lantern"><use href="#ornate-bird" width="30" height="92"/></svg><svg class="lantern"><use href="#ornate-bird" width="30" height="92"/></svg></div>
+  <div class="hero-copy">
+    <p class="eyebrow">In the name of Allah, the Most Merciful</p>
+    <p class="arabic-en">With gratitude, joy and the blessings of our families</p>
+    <div class="divider">✧</div>
+    <h1>Walima<br/>Reception</h1>
+    <p class="hero-subtitle">Celebrating the union of</p>
+    <p class="hero-names"><span data-bind="groom">Hamza</span> <small>&amp;</small> <span data-bind="bride">Ayesha</span></p>
+    <div class="divider">✦</div>
+    <p class="hero-date" data-bind="hero-date">SUNDAY · 17 JANUARY 2027</p>
+  </div>
+  <div class="scroll-down">Scroll down</div>
+ </section>
+ <!-- Scratch date cards exactly as an actual finger gesture, no fake animation -->
+ <section class="section paper date-section" id="date">
+   <svg class="floral top-left"><use href="#sprig" width="175" height="175"/></svg><svg class="floral top-right"><use href="#sprig" width="175" height="175"/></svg>
+   <div class="reveal"><div class="eyebrow">A day to remember</div><h2 class="script-title">The Date</h2><p class="tiny">✦ SCRATCH TO REVEAL THE DATE ✦</p></div>
+   <div class="scratch-row" aria-label="Three scratch-off cards revealing the event date">
+    <div class="scratch-card" data-part="day"><div class="scratch-reveal"><span>DAY</span><b data-bind="day">17</b></div><canvas tabindex="0" role="button" aria-label="Scratch or press Enter to reveal the day"></canvas></div>
+    <div class="scratch-card" data-part="month"><div class="scratch-reveal"><span>MONTH</span><b data-bind="month">JAN</b></div><canvas tabindex="0" role="button" aria-label="Scratch or press Enter to reveal the month"></canvas></div>
+    <div class="scratch-card" data-part="year"><div class="scratch-reveal"><span>YEAR</span><b data-bind="year">2027</b></div><canvas tabindex="0" role="button" aria-label="Scratch or press Enter to reveal the year"></canvas></div>
+   </div>
+   <p class="scratch-note">A little golden secret, just for you...</p>
+   <button type="button" id="reveal-all" class="reveal-button">✧ Reveal the date</button>
+   <p class="revealed-date" id="revealed-date">Sunday, 17 January 2027</p>
+   <p class="sparkle-line" aria-hidden="true">❦</p>
+   <svg class="floral bottom-left"><use href="#sprig" width="175" height="175"/></svg><svg class="floral bottom-right"><use href="#sprig" width="175" height="175"/></svg>
+ </section>
+ <!-- Invitation text within ornate three-foil arch -->
+ <section class="section invite-section paper" id="invite">
+  <div class="eyebrow reveal">The honour of your presence is requested</div>
+  <div class="invite-arch reveal">
+   <svg class="arch-svg" viewBox="0 0 350 535" preserveAspectRatio="none" aria-hidden="true"><path d="M27 518V147Q27 117 57 102Q75 72 108 66Q124 30 175 8Q226 30 242 66Q275 72 293 102Q323 117 323 147V518Z" fill="#fffaf1" stroke="#d4be96" stroke-width="4"/><path d="M36 513V149Q36 124 64 111Q83 81 116 77Q138 42 175 21Q212 42 234 77Q267 81 286 111Q314 124 314 149V513Z" fill="none" stroke="#ba9b67" stroke-width="2.5"/><path d="M45 506V162Q45 128 78 119Q91 94 122 86Q144 58 175 34Q206 58 228 86Q259 94 272 119Q305 128 305 162V506Z" fill="none" stroke="#e1d0ae" stroke-width="1.6"/><path d="M55 488H295M72 476H278" stroke="#e2cba4" stroke-width="1"/></svg>
+   <p class="arch-small">BY THE GRACE OF ALLAH</p>
+   <p class="inviting">Together with their families,<br/>we warmly invite you to celebrate</p>
+   <p class="arch-names"><span data-bind="groom">Hamza</span><span>&amp;</span><span data-bind="bride">Ayesha</span></p>
+   <p class="arch-body">at their<br/><em>Walima Reception</em><br/>as they begin a beautiful new chapter.</p>
+   <div class="arch-ornament">❦</div>
+   <p class="arch-small">YOUR PRESENCE AND PRAYERS<br/>WILL MAKE OUR DAY EVEN MORE SPECIAL.</p>
+  </div>
+ </section>
+ <!-- Only the Walima schedule; no Mehndi/Nikah/Baraat -->
+ <section class="section paper program-section" id="program">
+   <svg class="floral top-left"><use href="#sprig" width="175" height="175"/></svg><svg class="floral top-right"><use href="#sprig" width="175" height="175"/></svg>
+   <div class="reveal"><div class="eyebrow">Our celebration</div><h2 class="script-title">Walima Evening</h2><div class="divider">✦</div><p class="tiny">SUNDAY · <span data-bind="event-date">17 JANUARY 2027</span></p></div>
+   <div class="program reveal" aria-label="Walima evening program">
+    <div class="event"><div class="event-copy"><p class="event-time">6:30 pm</p><p class="event-label">Guest Reception</p></div><div class="node"></div><div class="event-art" aria-hidden="true">♜</div></div>
+    <div class="event"><div class="event-copy"><p class="event-time">7:30 pm</p><p class="event-label">Walima Dinner</p></div><div class="node"></div><div class="event-art" aria-hidden="true">♛</div></div>
+    <div class="event"><div class="event-copy"><p class="event-time">9:30 pm</p><p class="event-label">Dessert &amp; Blessings</p></div><div class="node"></div><div class="event-art" aria-hidden="true">❀</div></div>
+   </div>
+ </section>
+ <!-- Countdown local to Pakistan time -->
+ <section class="section countdown-section" id="countdown"><div class="reveal"><div class="eyebrow">Counting every precious moment</div><h2 class="script-title">The Celebration Begins In</h2><div class="countdown-grid" aria-live="off"><div class="count-box"><strong id="days">00</strong><span>Days</span></div><div class="count-box"><strong id="hours">00</strong><span>Hours</span></div><div class="count-box"><strong id="minutes">00</strong><span>Minutes</span></div><div class="count-box"><strong id="seconds">00</strong><span>Seconds</span></div></div><div class="divider">✧</div></div></section>
+ <!-- Venue and map -->
+ <section class="section paper venue-section" id="venue">
+   <svg class="floral top-left"><use href="#sprig" width="175" height="175"/></svg><svg class="floral top-right"><use href="#sprig" width="175" height="175"/></svg>
+   <div class="reveal"><div class="eyebrow">Where memories will be made</div><h2 class="script-title">The Venue</h2><div class="divider">✧</div></div>
+   <svg class="venue-illustration reveal" viewBox="0 0 400 260" aria-label="Artistic illustration of a grand Lahore celebration venue" role="img">
+    <defs><linearGradient id="building" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#f7dbaa"/><stop offset="1" stop-color="#ba935f"/></linearGradient><linearGradient id="floor" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#ead9be"/><stop offset="1" stop-color="#fdf6ee"/></linearGradient></defs>
+    <ellipse cx="200" cy="226" rx="190" ry="24" fill="#e4d6bf" opacity=".7"/><path d="M26 176H375V220H26Z" fill="url(#floor)"/>
+    <path d="M54 176V100L90 84V176ZM310 176V84L347 100V176Z" fill="#c29d70"/><path d="M75 176V66H325V176Z" fill="url(#building)" stroke="#b79463" stroke-width="3"/><path d="M113 66V48H285V66Z" fill="#c49e67"/><path d="M130 48Q145 22 200 13Q255 22 270 48Z" fill="#c6a26c"/><path d="M196 13V0M200 0L201 15" stroke="#a17c4a" stroke-width="3"/>
+    <g fill="#fff0d5"><path d="M169 177V112Q200 66 231 112V177Z"/><path d="M102 125V98Q115 82 128 98V125ZM272 125V98Q285 82 298 98V125Z"/><path d="M105 167V140Q117 127 128 140V167ZM272 167V140Q284 127 296 140V167Z"/><rect x="141" y="76" width="118" height="6"/></g><path d="M179 176V118Q201 84 222 118V176" stroke="#986f48" stroke-width="3" fill="#916f51"/>
+    <g stroke="#f2daaa" fill="none" stroke-width="2"><path d="M201 110V175M180 140H221"/><rect x="88" y="66" width="224" height="108"/></g>
+    <g fill="#83907b" opacity=".86"><ellipse cx="28" cy="162" rx="14" ry="50"/><ellipse cx="368" cy="162" rx="14" ry="50"/></g><path d="M26 142V224M370 142V224" stroke="#927754" stroke-width="5"/>
+    <path d="M160 221L190 180H211L246 221Z" fill="#c9ab7e"/><path d="M141 242L180 178M258 242L221 178" stroke="#e1c495" stroke-width="1.5"/><g fill="#d7b77a"><circle cx="53" cy="209" r="5"/><circle cx="89" cy="214" r="3"/><circle cx="338" cy="215" r="4"/><circle cx="369" cy="204" r="5"/></g>
+    <path d="M0 245Q200 228 400 245" fill="none" stroke="#ead4ad" stroke-width="4"/>
+   </svg>
+   <div class="reveal"><h3 class="venue-name" data-bind="venue">Pearl-Continental Hotel</h3><p class="venue-address" data-bind="address">Shahrah-e-Quaid-e-Azam, Lahore, Pakistan</p><p class="tiny">SUNDAY · <span data-bind="venue-date">17 JANUARY 2027</span><br/>FROM 6:30 PM ONWARD</p></div>
+   <div class="map-frame reveal"><div class="map-fallback"></div><iframe id="map" title="Location of the Walima reception in Lahore" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Pearl%20Continental%20Hotel%20Lahore&t=&z=14&ie=UTF8&iwloc=&output=embed"></iframe></div>
+   <div class="venue-actions reveal"><a class="gold-btn" id="directions" href="https://www.google.com/maps/search/?api=1&query=Pearl+Continental+Hotel+Lahore" target="_blank" rel="noopener noreferrer">⌖ &nbsp; Open directions</a><button type="button" class="outline-btn" id="calendar">✧ Add to calendar</button></div>
+ </section>
+ <!-- Dress code and warm closing -->
+ <section class="section paper dress-section" id="dress"><svg class="floral top-left"><use href="#sprig" width="175" height="175"/></svg><svg class="floral top-right"><use href="#sprig" width="175" height="175"/></svg>
+  <div class="reveal"><div class="eyebrow">Celebrate in your finest</div><h2 class="script-title">Dress Code</h2><div class="divider">✦</div></div>
+  <svg class="fashion-figures reveal" viewBox="0 0 310 200" role="img" aria-label="A small fashion illustration of elegant Pakistani formal outfits in pastel colours">
+   <g transform="translate(10 0)"><g transform="translate(0 0)"><circle cx="28" cy="33" r="11" fill="#c7a182"/><path d="M19 25Q20 14 29 17Q39 18 38 28" fill="#5f4a40"/><path d="M16 50L42 50L49 111L63 181Q28 194 -5 181L8 110Z" fill="#c9b3b6" stroke="#bc9c9f"/><path d="M12 111H47M5 160H55" stroke="#e4d0c5" fill="none"/></g><g transform="translate(63 0)"><circle cx="28" cy="33" r="11" fill="#cba88c"/><path d="M17 28Q24 11 38 22" fill="#6f5747"/><path d="M17 50L39 50L49 184H5Z" fill="#d4c2a2"/><path d="M20 53L29 65L38 53M16 113H42" fill="none" stroke="#f6e2bf"/><rect x="11" y="181" width="16" height="9" fill="#a28a74"/><rect x="32" y="181" width="16" height="9" fill="#a28a74"/></g><g transform="translate(126 0)"><circle cx="28" cy="33" r="11" fill="#b9957e"/><path d="M18 27Q27 8 39 25" fill="#6b4e45"/><path d="M16 50L44 50L51 112L70 185Q28 199 -11 185L5 112Z" fill="#b1bdac" stroke="#94a58c"/><path d="M7 113H49M-3 167H60" fill="none" stroke="#e8e3d2"/></g><g transform="translate(192 0)"><circle cx="28" cy="33" r="11" fill="#d2aa90"/><path d="M18 25Q31 12 39 27" fill="#57453c"/><path d="M17 50L42 50L51 178L40 182L35 116L20 116L17 182L6 180Z" fill="#b9b2ce" stroke="#a5a0bf"/><path d="M16 51L5 90M42 51L51 90" fill="none" stroke="#b2a7c9" stroke-width="11"/></g><g transform="translate(253 0)"><circle cx="22" cy="33" r="11" fill="#c9a48b"/><path d="M12 25Q24 12 32 25" fill="#604d3f"/><path d="M9 49L33 49L43 113L54 180Q24 193 -8 182L4 113Z" fill="#d8c2b6" stroke="#b39d91"/><path d="M3 112H38M-5 165H48" fill="none" stroke="#f3ded0"/></g></g>
+  </svg>
+  <div class="reveal"><p>Formal Pakistani attire is warmly welcomed.<br/>Choose a colour that makes you feel festive.</p><div class="palette" aria-label="Suggested colours"><span class="dot" style="background:#cdb3c9"></span><span class="dot" style="background:#e4c1a9"></span><span class="dot" style="background:#d5be84"></span><span class="dot" style="background:#b3bea5"></span><span class="dot" style="background:#d8c8b7"></span></div><div class="palette-label">Soft pastels · Warm neutrals · Elegant gold</div></div>
+ </section>
+ <section class="section closing-section" id="closing"><svg class="floral top-left"><use href="#sprig" width="175" height="175"/></svg><svg class="floral top-right"><use href="#sprig" width="175" height="175"/></svg>
+  <div class="reveal"><div class="eyebrow">With heartfelt gratitude</div><h2>See you there!</h2><div class="divider">✧</div><p>We look forward to celebrating a wonderful<br/>evening with you, Insha'Allah.</p><p class="hero-names"><span data-bind="groom">Hamza</span> <small>&amp;</small> <span data-bind="bride">Ayesha</span></p><button type="button" class="gold-btn" id="share">↗ &nbsp; Share this invitation</button><div><button type="button" class="replay" id="replay">↻ &nbsp; Open the envelope again</button></div><p class="footnote">MADE WITH LOVE · LAHORE, PAKISTAN</p></div>
+ </section>
+</main>
+<button class="music" id="music" type="button" aria-label="Play background music" title="Toggle soft instrumental music" hidden>
+ <svg class="muted-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 16V5L19 3V14" fill="none" stroke="white" stroke-width="2"/><circle cx="5.5" cy="17" r="3.5" fill="white"/><circle cx="16.5" cy="15" r="3.5" fill="white"/></svg>
+ <svg class="playing-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1" fill="white"/><rect x="14" y="5" width="4" height="14" rx="1" fill="white"/></svg>
+</button>
+<script>
+'use strict';
+/* EDIT THESE SAMPLE DETAILS. URL query overrides are also supported: ?groom=Hamza&bride=Ayesha&date=2027-01-17&venue=...&address=... */
+const DEFAULTS={groom:'Hamza',bride:'Ayesha',date:'2027-01-17',time:'18:30',venue:'Pearl-Continental Hotel',address:'Shahrah-e-Quaid-e-Azam, Lahore, Pakistan'};
+const params=new URLSearchParams(location.search);
+const cfg={...DEFAULTS};for(const k of Object.keys(DEFAULTS)){const p=params.get(k);if(p&&p.length<=140)cfg[k]=p.trim()}
+if(!/^\d{4}-\d\d-\d\d$/.test(cfg.date)||Number.isNaN(Date.parse(cfg.date+'T18:30:00+05:00')))cfg.date=DEFAULTS.date;
+if(!/^\d\d:\d\d$/.test(cfg.time))cfg.time=DEFAULTS.time;
+const when=new Date(cfg.date+'T'+cfg.time+':00+05:00');
+const dateFmt=new Intl.DateTimeFormat('en-GB',{day:'numeric',month:'long',year:'numeric',timeZone:'Asia/Karachi'});
+const dow=new Intl.DateTimeFormat('en-GB',{weekday:'long',timeZone:'Asia/Karachi'});
+const monthFmt=new Intl.DateTimeFormat('en-GB',{month:'short',timeZone:'Asia/Karachi'});
+const dateLabel=dateFmt.format(when),weekday=dow.format(when);
+const textMap={groom:cfg.groom,bride:cfg.bride,'hero-date':(weekday+' · '+dateLabel).toUpperCase(),day:new Intl.DateTimeFormat('en-GB',{day:'numeric',timeZone:'Asia/Karachi'}).format(when),month:monthFmt.format(when).toUpperCase(),year:new Intl.DateTimeFormat('en-GB',{year:'numeric',timeZone:'Asia/Karachi'}).format(when),venue:cfg.venue,address:cfg.address,'event-date':dateLabel.toUpperCase(),'venue-date':dateLabel.toUpperCase()};
+for(const [key,val] of Object.entries(textMap))document.querySelectorAll('[data-bind="'+key+'"]').forEach(el=>el.textContent=val);
+document.getElementById('revealed-date').textContent=weekday+', '+dateLabel;
+document.title=cfg.bride+' & '+cfg.groom+' · Walima Invitation';
+const mapQuery=cfg.venue+', '+cfg.address;
+document.getElementById('directions').href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(mapQuery);
+document.getElementById('map').src='https://maps.google.com/maps?q='+encodeURIComponent(mapQuery)+'&z=14&output=embed';
+
+const gate=document.getElementById('gate'),musicBtn=document.getElementById('music');let opened=false;
+function openEnvelope(){if(opened)return;opened=true;startMusic();gate.classList.remove('again','finished');gate.classList.add('opening');document.getElementById('seal').disabled=true;
+  // Animated gold light runs while the flap lifts, then reveals the scrollable site.
+  window.setTimeout(()=>{gate.classList.add('finished');document.body.classList.remove('gate-locked');musicBtn.hidden=false;},1800);
+  window.setTimeout(()=>{gate.setAttribute('aria-hidden','true');document.getElementById('seal').disabled=false;},2600);
+}
+document.getElementById('seal').addEventListener('click',openEnvelope);
+document.getElementById('replay').addEventListener('click',()=>{window.scrollTo({top:0,behavior:'instant'});opened=false;stopMusic();musicBtn.hidden=true;gate.classList.remove('opening','finished');gate.classList.add('again');gate.removeAttribute('aria-hidden');document.body.classList.add('gate-locked');});
+
+/* THREE SCRATCH-OFF CARDS - pointer events support both finger and mouse. */
+let revealed=0;
+function revealCard(el){if(el.classList.contains('revealed'))return;el.classList.add('revealed');revealed++;if(revealed>=3){document.getElementById('revealed-date').classList.add('show');document.getElementById('reveal-all').textContent='✦ Date revealed ✦';}}
+function initializeScratch(el){const canvas=el.querySelector('canvas'),rect=el.getBoundingClientRect(),width=Math.max(60,Math.round(rect.width)),height=Math.round(rect.height);canvas.width=width*2;canvas.height=height*2;const ctx=canvas.getContext('2d',{willReadFrequently:true});ctx.scale(2,2);
+ const gold=ctx.createLinearGradient(0,0,width,height);gold.addColorStop(0,'#e9cf98');gold.addColorStop(.28,'#fdf0ce');gold.addColorStop(.56,'#c79f5d');gold.addColorStop(.85,'#eed9aa');gold.addColorStop(1,'#c6a069');ctx.fillStyle=gold;ctx.fillRect(0,0,width,height);
+ ctx.strokeStyle='#fff7e1a5';ctx.lineWidth=1;for(let x=-height;x<width+height;x+=11){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x+height,height);ctx.stroke()}
+ ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillStyle='#fffaf0';ctx.font='italic 20px Georgia';ctx.fillText('Scratch',width/2,height/2-9);ctx.font='16px Georgia';ctx.fillText('✧ ✧ ✧',width/2,height/2+22);
+ let down=false,stroke=0;function draw(e){if(!down||el.classList.contains('revealed'))return;e.preventDefault();const r=canvas.getBoundingClientRect(),x=(e.clientX-r.left)*width/r.width,y=(e.clientY-r.top)*height/r.height;ctx.globalCompositeOperation='destination-out';ctx.beginPath();ctx.arc(x,y,20,0,Math.PI*2);ctx.fill();stroke++;
+  if(stroke%5===0){const data=ctx.getImageData(0,0,canvas.width,canvas.height).data;let clear=0;for(let i=3;i<data.length;i+=32)if(data[i]<35)clear++;if(clear>(data.length/32)*.35)revealCard(el)}
+ }
+ canvas.addEventListener('pointerdown',e=>{down=true;canvas.setPointerCapture(e.pointerId);draw(e)});canvas.addEventListener('pointermove',draw);canvas.addEventListener('pointerup',()=>down=false);canvas.addEventListener('pointercancel',()=>down=false);
+ canvas.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();revealCard(el)}});
+}
+document.querySelectorAll('.scratch-card').forEach(initializeScratch);
+document.getElementById('reveal-all').addEventListener('click',()=>document.querySelectorAll('.scratch-card').forEach(revealCard));
+
+/* Sections gently fade as the guest scrolls. */
+if('IntersectionObserver' in window){const io=new IntersectionObserver(entries=>{for(const e of entries)if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}},{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>io.observe(el))}else document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));
+
+/* LIVE COUNTDOWN - ISO offset is explicitly Pakistan UTC+05:00. */
+function countdown(){let s=Math.max(0,Math.floor((when-Date.now())/1000));const dd=Math.floor(s/86400);s%=86400;const hh=Math.floor(s/3600);s%=3600;const mm=Math.floor(s/60),ss=s%60;for(const [id,v] of Object.entries({days:dd,hours:hh,minutes:mm,seconds:ss}))document.getElementById(id).textContent=String(v).padStart(2,'0')}
+countdown();window.setInterval(countdown,1000);
+
+/* Soft original synthesised bell ambience. No external song, no copyrighted recording. Starts only after explicit music-button interaction. */
+let audioCtx=null,musicTimer=null,playing=false,beat=0;
+function note(freq,at){if(!audioCtx)return;const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type='sine';o.frequency.value=freq;const t=audioCtx.currentTime+at;g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.027,t+.035);g.gain.exponentialRampToValueAtTime(.0001,t+1.6);o.connect(g);g.connect(audioCtx.destination);o.start(t);o.stop(t+1.7)}
+const melody=[523.25,659.25,783.99,659.25,587.33,523.25,440,523.25,587.33,698.46,659.25,523.25];
+function playPhrase(){if(!playing)return;const f=melody[beat%melody.length];note(f,0);if(beat%4===0)note(f/2,.05);beat++}
+async function startMusic(){if(playing)return;try{const Ctx=window.AudioContext||window.webkitAudioContext;if(!Ctx)throw new Error('Audio unavailable');audioCtx=new Ctx();await audioCtx.resume();playing=true;playPhrase();musicTimer=window.setInterval(playPhrase,590);musicBtn.classList.add('is-playing');musicBtn.setAttribute('aria-label','Pause background music')}catch(e){playing=false;musicBtn.setAttribute('aria-label','Background music unavailable')}}
+function stopMusic(){playing=false;window.clearInterval(musicTimer);musicTimer=null;if(audioCtx){audioCtx.close().catch(()=>{});audioCtx=null}musicBtn.classList.remove('is-playing');musicBtn.setAttribute('aria-label','Play background music')}
+musicBtn.addEventListener('click',()=>playing?stopMusic():startMusic());
+
+/* Downloadable .ics calendar and shareable link. */
+document.getElementById('calendar').addEventListener('click',()=>{const dt=cfg.date.replaceAll('-','');const start=cfg.time.replace(':','')+'00',endM=Number(cfg.time.slice(0,2))*60+Number(cfg.time.slice(3))+180;const end=String(Math.floor(endM/60)%24).padStart(2,'0')+String(endM%60).padStart(2,'0')+'00';const ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Lahore Walima Invitation//EN','BEGIN:VEVENT','UID:walima-'+dt+'@invitation.example','DTSTAMP:'+new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d+/,'').replace('Z','Z'),'DTSTART;TZID=Asia/Karachi:'+dt+'T'+start,'DTEND;TZID=Asia/Karachi:'+dt+'T'+end,'SUMMARY:Walima Reception - '+cfg.groom+' & '+cfg.bride,'LOCATION:'+mapQuery,'DESCRIPTION:With love and blessings.','END:VEVENT','END:VCALENDAR'].join('\r\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([ics],{type:'text/calendar'}));a.download='Walima-Invitation.ics';document.body.append(a);a.click();window.setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1000)});
+document.getElementById('share').addEventListener('click',async e=>{const data={title:cfg.bride+' & '+cfg.groom+' · Walima Invitation',text:'You are invited to our Walima reception in Lahore!',url:location.href};try{if(navigator.share)await navigator.share(data);else{await navigator.clipboard.writeText(location.href);e.currentTarget.textContent='✓ Link copied';setTimeout(()=>e.currentTarget.textContent='↗ Share this invitation',2500)}}catch(err){if(err.name!=='AbortError')e.currentTarget.textContent='Copy the page URL to share'}});
+</script>
+</body>
+</html>

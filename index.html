@@ -19,8 +19,8 @@
   <link rel="preload" href="assets/floral-envelope.webp" as="image" fetchpriority="high">
   <link rel="preload" href="assets/baskervville.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="invitation.css?v=5">
-  <link rel="stylesheet" href="floral.css?v=1">
-  <script src="invitation.js?v=7" defer></script>
+  <link rel="stylesheet" href="floral.css?v=2">
+  <script src="invitation.js?v=8" defer></script>
   <noscript><style>.instruction,.countdown,.cover{display:none}</style></noscript>
 </head>
 <body>
@@ -48,26 +48,34 @@
         <span class="envelope-seal" aria-hidden="true">M<i>&amp;</i>U</span>
         <span class="envelope-caption" aria-hidden="true">
           <span class="envelope-title">Mussadiq <i>&amp;</i> Unmber</span>
+          <time class="envelope-date" datetime="2026-12-27">Sunday, 27 December 2026</time>
           <span class="tap-caption">Tap to open <svg class="icon"><use href="#i-arrow"/></svg></span>
         </span>
       </button>
       <span class="butterfly" aria-hidden="true"><span class="butterfly-wing"></span><span class="butterfly-wing"></span><span class="butterfly-body"></span></span>
     </div>
   </header>
+  <div class="opening-light" aria-hidden="true"></div>
 
   <main id="invitation" class="invitation">
     <section class="hero" id="welcome" aria-labelledby="couple">
       <picture><source media="(min-width: 0px)" srcset="assets/garden-phone.webp"><img class="garden-picture" src="assets/garden.webp" width="1024" height="1536" alt="An illustrated bride and groom walk hand in hand through a Lahore garden beneath a gilded floral arch." fetchpriority="high"></picture>
       <div class="hero-words"><p class="hero-intro">Walima of</p>
         <h1 id="couple" tabindex="-1"><span>Mussadiq</span><span class="hero-and"><i></i>&amp;<i></i></span><span>Unmber</span></h1>
+        <div class="hero-details">
+          <div class="little-rule dark" aria-hidden="true"><i></i><svg><use href="#i-spark"/></svg><i></i></div>
+          <time datetime="2026-12-27">Sunday, 27 December 2026</time>
+          <p><time datetime="2026-12-27T12:00:00+05:00">12:00 PM</time><span>Pakistan time</span></p>
+        </div>
       </div>
       <span class="butterfly" aria-hidden="true"><span class="butterfly-wing"></span><span class="butterfly-wing"></span><span class="butterfly-body"></span></span>
-      <nav class="card-nav" aria-label="Invitation details">
-        <a href="#the-date">Date</a>
-        <a href="#venue">Venue</a>
-        <a href="#contact">Contact</a>
-      </nav>
     </section>
+    <nav class="card-nav" aria-label="Invitation details">
+      <a href="#the-date">Date</a>
+      <a href="#venue">Venue</a>
+      <a href="#contact">Contact</a>
+      <button class="sound" id="sound" type="button" aria-label="Play music" aria-pressed="false" title="Play music" hidden><svg class="icon" aria-hidden="true"><use href="#i-play"/></svg></button>
+    </nav>
     <div class="leaves">
       <section class="date-section page" id="the-date" aria-labelledby="date-heading">
         <div class="little-rule dark" aria-hidden="true"><i></i><svg><use href="#i-spark"/></svg><i></i></div>
@@ -123,7 +131,6 @@
       </footer>
     </div>
   </main>
-  <button class="sound" id="sound" type="button" aria-label="Play music" aria-pressed="false" title="Play music" hidden><svg class="icon" aria-hidden="true"><use href="#i-play"/></svg></button>
-  <audio id="music" loop preload="none" src="assets/refrain.mp3"></audio>
+  <audio id="music" loop preload="auto" src="assets/refrain.mp3"></audio>
 </body>
 </html>

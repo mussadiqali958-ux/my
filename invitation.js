@@ -12,6 +12,7 @@
   const startTime = Date.parse('2026-12-27T12:00:00+05:00');
   let stage = 'closed';
   let clock = 0;
+  let audioContext;
 
   function syncMusic() {
     const playing = !music.paused && !music.ended;
@@ -25,6 +26,33 @@
   function playMusic() {
     const started = music.play();
     if (started) started.catch(syncMusic);
+  }
+
+  async function playOpeningChime() {
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContext) return;
+
+    try {
+      audioContext ??= new AudioContext();
+      if (audioContext.state !== 'running') await audioContext.resume();
+      const start = audioContext.currentTime;
+      // Three soft bell notes rise as the flap opens and fade with the light.
+      [523.25, 659.25, 783.99].forEach((frequency, index) => {
+        const note = audioContext.createOscillator();
+        const gain = audioContext.createGain();
+        const onset = start + index * 0.115;
+        note.frequency.value = frequency;
+        note.type = 'sine';
+        gain.gain.setValueAtTime(0.001, onset);
+        gain.gain.exponentialRampToValueAtTime(0.095, onset + 0.025);
+        gain.gain.exponentialRampToValueAtTime(0.001, onset + 0.85);
+        note.connect(gain).connect(audioContext.destination);
+        note.start(onset);
+        note.stop(onset + 0.85);
+      });
+    } catch {
+      // The soundtrack and opening still work if Web Audio is unavailable.
+    }
   }
 
   function updateClock() {
@@ -65,12 +93,13 @@
     stage = 'opening';
     // Starting in the original touch handler also works with mobile audio policies.
     playMusic();
+    void playOpeningChime();
     if (reducedMotion.matches) {
       finishOpening(true);
       return;
     }
     cover.classList.add('opening');
-    const reveal = cover.getAnimations().find(animation => animation.animationName === 'envelope-away');
+    const reveal = cover.getAnimations?.().find(animation => animation.animationName === 'envelope-away');
     if (reveal) reveal.finished.then(() => finishOpening(true), () => finishOpening(true));
     else finishOpening(true);
   }

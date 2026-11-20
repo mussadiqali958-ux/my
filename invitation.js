@@ -12,7 +12,6 @@
   const startTime = Date.parse('2026-12-27T12:00:00+05:00');
   let stage = 'closed';
   let clock = 0;
-  let transition = 0;
 
   function syncMusic() {
     const playing = !music.paused && !music.ended;
@@ -66,8 +65,14 @@
     stage = 'opening';
     // Starting in the original touch handler also works with mobile audio policies.
     playMusic();
+    if (reducedMotion.matches) {
+      finishOpening(true);
+      return;
+    }
     cover.classList.add('opening');
-    transition = window.setTimeout(() => finishOpening(true), reducedMotion.matches ? 30 : 1720);
+    const reveal = cover.getAnimations().find(animation => animation.animationName === 'envelope-away');
+    if (reveal) reveal.finished.then(() => finishOpening(true), () => finishOpening(true));
+    else finishOpening(true);
   }
 
   // Paint the foil at the displayed size so the scratched line tracks the finger at any DPR.
@@ -183,7 +188,7 @@
   }
 
   function closeEnvelope(focusSeal) {
-    window.clearTimeout(transition);clearInterval(clock);clock=0;
+    clearInterval(clock);clock=0;
     stage='closed';invitation.classList.remove('unfolded');music.pause();music.currentTime=0;sound.hidden=true;
     $('#date-result').textContent='';resetTiles.forEach(reset=>reset());
     $('#share-options').hidden=true;$('#share-status').textContent='';
@@ -208,7 +213,7 @@
   });
   mapButton.hidden=false;
 
-  const options=$('#share-options'), shareText='Please join us for the Walima of Mussadiq and Unmber on Sunday, 27 December 2026 at 12:00 PM at Green Leaf Castle, Lahore.';
+  const options=$('#share-options'), shareText='Please join us for the Walima of Mussadiq and Unmber on Sunday, 27 December 2026 at 12:00 PM at Green Leaf Castle (Basement), Lahore.';
   options.querySelector('input').value=guestURL;
   $('#whatsapp').href='https://wa.me/?text='+encodeURIComponent(shareText+'\n'+guestURL);
   $('#share').addEventListener('click',async()=>{

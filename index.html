@@ -17,11 +17,13 @@
   <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
   <link rel="canonical" href="https://mussadiqali958-ux.github.io/my/">
   <link rel="preload" href="assets/floral-envelope.webp?v=hd1" as="image" fetchpriority="high">
-  <link rel="preload" href="assets/baskervville.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/lora.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="invitation.css?v=5">
-  <link rel="stylesheet" href="floral.css?v=hd1">
-  <link rel="stylesheet" href="assets/card-controls.css?v=hd1">
-  <script src="invitation.js?v=hd1" defer></script>
+  <link rel="stylesheet" href="floral.css?v=reply2">
+  <link rel="stylesheet" href="assets/card-controls.css?v=reply2">
+  <script src="invitation.js?v=reply2" defer></script>
+  <link rel="stylesheet" href="assets/reply.css?v=1">
+  <script src="assets/reply.js?v=1" defer></script>
   <script src="assets/card-navigation.js?v=hd1" defer></script>
   <noscript><style>.instruction,.countdown,.cover{display:none}</style></noscript>
 </head>
@@ -99,7 +101,7 @@
           <span class="letter-divider" aria-hidden="true"></span>
           <time class="when-date" datetime="2026-12-27">Sunday, 27 December 2026</time>
           <p class="reception-time"><time datetime="2026-12-27T12:00:00+05:00">12:00 PM</time><span>Pakistan time</span></p>
-          <a class="text-action" href="walima.ics?v=2" download="Mussadiq-and-Unmber-Walima.ics"><span class="button-medal"><svg class="card-icon" aria-hidden="true" focusable="false"><use href="assets/card-icons.svg#calendar"/></svg></span>Add to calendar</a>
+          <a class="text-action" href="walima.ics?v=3" download="Mussadiq-and-Unmber-Walima.ics"><span class="button-medal"><svg class="card-icon" aria-hidden="true" focusable="false"><use href="assets/card-icons.svg#calendar"/></svg></span>Add to calendar</a>
         </div>
       </section>
 
@@ -121,9 +123,20 @@
       </section>
 
       <footer class="closing page" id="contact"><div class="little-rule dark" aria-hidden="true"><i></i><svg><use href="#i-spark"/></svg><i></i></div>
-        <h2 class="section-title">Guest contact</h2>
-        <p class="contact-name">Muhammad Younas</p>
-        <a class="contact-number" href="tel:+923004885365"><span class="button-medal"><svg class="card-icon" aria-hidden="true" focusable="false"><use href="assets/card-icons.svg#phone"/></svg></span>0300 488 5365</a>
+        <h2 class="section-title">Family contacts</h2>
+        <ul class="family-phones">
+          <li><a class="family-phone" href="tel:+923004885365"><span>Muhammad Younas<small>0300 4885365</small></span><span class="button-medal"><svg class="card-icon" aria-hidden="true" focusable="false"><use href="assets/card-icons.svg#phone"/></svg></span></a></li>
+          <li><a class="family-phone" href="tel:+923334975462"><span>Abdullah Younas<small>0333 4975462</small></span><span class="button-medal"><svg class="card-icon" aria-hidden="true" focusable="false"><use href="assets/card-icons.svg#phone"/></svg></span></a></li>
+        </ul>
+        <section class="attendance" aria-labelledby="attendance-heading">
+          <h2 class="section-title" id="attendance-heading">Confirm your attendance</h2>
+          <p>Kindly let us know if you can join us.</p>
+          <a class="rsvp" id="open-rsvp" href="https://wa.me/923004885365">
+            <span class="wax emerald" aria-hidden="true"><span>RSVP</span></span>
+            <span class="rsvp-caption">Tap to reply</span>
+          </a>
+        </section>
+        <a class="card-download" href="cards/Walima-Invitation.jpg" download="Walima-Invitation.jpg"><svg class="card-icon" aria-hidden="true" focusable="false"><use href="assets/card-icons.svg#download"/></svg>Save invitation image</a>
         <div class="guest-actions" hidden><button type="button" id="share"><svg class="card-icon" aria-hidden="true" focusable="false"><use href="assets/card-icons.svg#share"/></svg>Share invitation</button><button type="button" id="replay"><svg class="card-icon" aria-hidden="true" focusable="false"><use href="assets/card-icons.svg#replay"/></svg>Replay opening</button></div>
         <div class="share-options" id="share-options" hidden><input aria-label="Guest invitation link" readonly value=""><div><button type="button" id="copy">Copy link</button><a id="whatsapp" target="_blank" rel="noopener noreferrer" href="https://wa.me/?text=Mussadiq%20%26%20Unmber%20%E2%80%94%20Walima%20Invitation%20">WhatsApp</a></div></div>
         <p id="share-status" class="share-status" role="status"></p>
@@ -133,5 +146,23 @@
   </main>
 
   <audio id="music" loop preload="auto" src="assets/refrain.mp3"></audio>
+  <dialog id="reply" class="reply-dialog" aria-labelledby="reply-title">
+    <div class="dialog-bar"><span>Walima · 27 December 2026</span><button id="close-rsvp" type="button" aria-label="Close RSVP"><svg class="card-icon" aria-hidden="true" focusable="false"><use href="assets/card-icons.svg#close"/></svg></button></div>
+    <form id="reply-form" class="reply-form" method="get" data-occasion="Walima RSVP for Mussadiq &amp; Unmber · 27 December 2026">
+      <h2 id="reply-title">Confirm your attendance</h2>
+      <label for="guest-name">Your name</label>
+      <input id="guest-name" name="guest" autocomplete="name" required maxlength="100">
+      <fieldset><legend>Will you be attending?</legend>
+        <label><input type="radio" name="attending" value="yes" required> Accepts with pleasure</label>
+        <label><input type="radio" name="attending" value="no"> Declines with regret</label>
+      </fieldset>
+      <label for="guest-count">Number of guests attending</label>
+      <input type="number" id="guest-count" name="count" value="1" min="1" step="1" inputmode="numeric" required>
+      <input type="hidden" name="text">
+      <button class="submit" type="submit"><svg class="card-icon" aria-hidden="true" focusable="false"><use href="assets/card-icons.svg#send"/></svg>Continue to WhatsApp</button>
+      <small>Your reply will open in a chat with <strong>Muhammad Younas</strong>.</small>
+    </form>
+    <button class="dialog-music" id="reply-music" aria-label="Play music" aria-pressed="false" type="button"><span class="button-medal"><svg class="card-icon" aria-hidden="true" focusable="false"><use href="assets/card-icons.svg#play"/></svg></span>Music</button>
+  </dialog>
 </body>
 </html>

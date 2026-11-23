@@ -1,4 +1,17 @@
 @font-face {
+  font-family: Lora;
+  src: url("lora.woff2") format("woff2");
+  font-weight: 400 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: Lora;
+  src: url("lora-italic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 400 700;
+  font-display: swap;
+}
+@font-face {
   font-family: "Card Sans";
   src: url("dm-sans.woff2") format("woff2");
   font-weight: 100 1000;
@@ -11,6 +24,7 @@
 }
 
 :root {
+  --serif: Lora, Georgia, serif;
   --card-width: 510px;
   --ribbon-height: 66px;
   --ribbon-offset: calc(var(--ribbon-height) + env(safe-area-inset-top, 0px));
@@ -90,7 +104,7 @@
   border: 0;
   background: none;
   color: inherit;
-  font: 650 .8125rem/1.1 var(--ui-font);
+  font: 650 .875rem/1.1 var(--ui-font);
   letter-spacing: .005em;
   text-decoration: none;
   touch-action: manipulation;

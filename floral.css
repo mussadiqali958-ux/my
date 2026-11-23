@@ -112,7 +112,7 @@ body { font-family: var(--sans) }
 .envelope-date {
   color: #ffdfaa;
   text-shadow: 0 2px 8px #062019;
-  font: 550 clamp(12px,3.3vw,15px)/1.25 var(--sans);
+  font: 620 clamp(14px,3.55vw,16px)/1.25 var(--sans);
 }
 .cover .tap-caption {
   position: static;
@@ -227,7 +227,7 @@ body { font-family: var(--sans) }
   scroll-margin-top: calc(var(--ribbon-offset) + 8px);
 }
 .date-section, .reception { background: #fff5e6 }
-.date-section .instruction, .letter-copy, .venue address { font: 450 16px/1.6 var(--sans) }
+.date-section .instruction, .letter-copy, .venue address { font: 520 1rem/1.58 var(--sans) }
 .date-section .section-title, .arch-letter .section-title, .closing .section-title, .countdown .section-title, .venue h2 {
   font-size: clamp(29px,8vw,45px);
   letter-spacing: -.033em;
@@ -266,7 +266,7 @@ body { font-family: var(--sans) }
   max-height: none;
 }
 .walima .hero-words { top: 19%; left: 8%; right: 8% }
-.walima .hero-intro { font: italic 500 clamp(23px,6.1cqw,31px)/1.18 var(--serif) }
+.walima .hero-intro { font: italic 590 clamp(23px,6.1cqw,31px)/1.18 var(--serif) }
 .walima .hero h1 {
   font-size: clamp(45px, min(14.2cqw, 9.35svh), 74px);
   line-height: .96;
@@ -284,7 +284,7 @@ body { font-family: var(--sans) }
 .tile { border-radius: 8px; box-shadow: 0 3px 7px #73502829, inset 0 0 0 3px #fff4d7 }
 .date-value { font-variant-numeric: lining-nums }
 .date-section .instruction { max-width: 30ch; margin-inline: auto }
-.tile-label, .reception-time span, .time-grid small, .venue .label { font-size: .75rem; letter-spacing: .07em }
+.tile-label, .reception-time span, .time-grid small, .venue .label { font-size: .82rem; font-weight: 630; letter-spacing: .055em }
 .walima .countdown { background: linear-gradient(135deg, #285b4a, #123e32 63%, #11392f) }
 .venue-actions .solid-action {
   background: linear-gradient(145deg, #346951, #154437 65%, #0f382e);
@@ -297,8 +297,20 @@ body { font-family: var(--sans) }
 .venue-actions .card-icon, .guest-actions .card-icon { width: 19px; height: 19px }
 .venue-actions .map-toggle, .arch-letter .text-action, .guest-actions button { font: 600 .875rem/1.2 var(--ui-font) }
 .venue-actions .map-toggle { color: #365040 }
-.contact-number { font: 650 1.05rem/1.4 var(--ui-font); margin: .3em auto; color: #284c3c }
-.contact-number .button-medal { width: 32px; height: 32px }
+.family-phones { max-width: 24rem; margin: 1.2rem auto 0; padding: 0; list-style: none; text-align: left }
+.family-phones li { border-bottom: 1px solid #ba9f80 }
+.family-phones li:first-child { border-top: 1px solid #ba9f80 }
+.family-phone {
+  display: flex; justify-content: space-between; align-items: center; gap: 10px;
+  min-height: 58px; padding: .6rem .35rem; color: #243f34;
+  text-decoration: none; font: 600 clamp(17px,4.8cqw,22px)/1.37 var(--serif);
+}
+.family-phone small { display: block; margin-top: 1px; color: #3c5146; font: 580 .96rem/1.4 var(--ui-font); font-variant-numeric: tabular-nums }
+.walima .attendance { margin: 2rem auto 1rem; max-width: 26rem }
+.walima .attendance h2 { font-size: clamp(24px,6.8cqw,34px); text-wrap: balance; color: var(--enamel-dark) }
+.walima .attendance p { margin: .65em auto; color: #3a5145; font: 530 1rem/1.5 var(--ui-font) }
+.walima .closing .guest-actions { margin-top: .6rem }
+.walima .time-grid span { font-family: var(--serif); font-weight: 600 }
 .guest-actions { gap: 6px 12px; border: 0; padding-top: 0 }
 .guest-actions button {
   border: 1px solid #c2a386;

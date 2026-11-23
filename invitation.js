@@ -6,6 +6,7 @@
   const invitation = $('#invitation');
   const music = $('#music');
   const sound = $('#sound');
+  const soundButtons = [sound, $('#reply-music')];
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const foilPanels = [...document.querySelectorAll('.tile')];
   const guestURL = new URL(location.pathname, location.origin).href;
@@ -17,10 +18,12 @@
   function syncMusic() {
     const playing = !music.paused && !music.ended;
     const action = playing ? 'Pause music' : 'Play music';
-    sound.setAttribute('aria-pressed', String(playing));
-    sound.setAttribute('aria-label', action);
-    sound.title = action;
-    sound.querySelector('use').setAttribute('href', playing ? 'assets/card-icons.svg#pause' : 'assets/card-icons.svg#play');
+    for (const button of soundButtons) {
+      button.setAttribute('aria-pressed', String(playing));
+      button.setAttribute('aria-label', action);
+      button.title = action;
+      button.querySelector('use').setAttribute('href', playing ? 'assets/card-icons.svg#pause' : 'assets/card-icons.svg#play');
+    }
   }
 
   function playMusic() {
@@ -259,7 +262,9 @@
     catch {const field=options.querySelector('input');field.focus();field.select();$('#share-status').textContent='The link is selected. Use Copy to share it.';}
   });
   $('#replay').addEventListener('click',()=>closeEnvelope(true));
-  sound.addEventListener('click',()=>{if(music.paused)playMusic();else music.pause();});
+  for (const button of soundButtons) {
+    button.addEventListener('click', () => { if (music.paused) playMusic(); else music.pause(); });
+  }
   ['play','pause','ended','error'].forEach(event=>music.addEventListener(event,syncMusic));
   window.addEventListener('pagehide',()=>music.pause());
   document.querySelectorAll('[data-open]').forEach(button=>button.addEventListener('click',openEnvelope));

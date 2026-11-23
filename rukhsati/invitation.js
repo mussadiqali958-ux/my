@@ -108,28 +108,3 @@ window.addEventListener('scroll', () => {
   if (!queued) { queued = true; requestAnimationFrame(trackSchedule); }
 }, {passive:true});
 trackSchedule();
-
-const reply = document.querySelector('#reply');
-const form = document.querySelector('#reply-form');
-const guestCount = form.elements.count;
-document.querySelector('#open-rsvp').addEventListener('click', event => {
-  if (typeof reply.showModal !== 'function') return;
-  event.preventDefault();
-  reply.showModal();
-  document.querySelector('#close-rsvp').focus();
-});
-document.querySelector('#close-rsvp').addEventListener('click', () => reply.close());
-form.addEventListener('change', () => {
-  guestCount.disabled = form.elements.attending.value === 'no';
-  if (guestCount.disabled) guestCount.value = '0';
-  else if (guestCount.value === '0') guestCount.value = '1';
-});
-form.addEventListener('submit', event => {
-  event.preventDefault();
-  const guest = form.elements.guest.value.trim();
-  if (!guest) { form.elements.guest.focus(); return; }
-  const coming = form.elements.attending.value === 'yes';
-  const response = coming ? 'Accepts with pleasure. Guests attending: ' + guestCount.value : 'Declines with regret.';
-  const message = 'Rukhsati RSVP for Mussadiq & Unmber · 26 December 2026\n' + guest + ' — ' + response;
-  window.location.assign('https://wa.me/923416203644?text=' + encodeURIComponent(message));
-});

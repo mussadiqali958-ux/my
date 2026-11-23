@@ -1,0 +1,92 @@
+.rsvp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: max-content;
+  margin: 1.2rem auto;
+  color: var(--enamel);
+  text-decoration: none;
+}
+.rsvp .wax {
+  width: clamp(86px, 24cqw, 116px);
+  font: 650 clamp(17px, 5cqw, 23px)/1 var(--serif);
+  letter-spacing: .035em;
+}
+.rsvp:active .wax { transform: translateY(2px) }
+.rsvp-caption { font: 650 .95rem/1.4 var(--ui-font) }
+.wax.emerald { color: #fff2cf; text-shadow: 0 1px 2px #102c21 }
+.wax.emerald::before {
+  filter: sepia(1) saturate(2.2) hue-rotate(95deg) brightness(.56) contrast(1.45) drop-shadow(0 4px 3px #253d2b55);
+}
+.card-download {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5em;
+  min-height: 44px; padding: .48em .85em; border-radius: 28px;
+  color: var(--enamel-dark); text-decoration: underline; text-underline-offset: .22em;
+  font: 650 .91rem/1.3 var(--ui-font);
+}
+.card-download .card-icon { width: 19px; height: 19px }
+body:has(.reply-dialog[open]) { overflow: hidden }
+.reply-dialog {
+  position: fixed;
+  inset: 0;
+  width: min(100%, var(--card-width));
+  max-width: none;
+  height: 100vh; height: 100dvh;
+  max-height: none;
+  margin: 0 auto;
+  padding: 0 0 env(safe-area-inset-bottom);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border: 0;
+  background: var(--nav-paper);
+  color: var(--ribbon-ink);
+  font: 500 1rem/1.45 var(--ui-font);
+  box-sizing: border-box;
+}
+.reply-dialog::backdrop { background: #181717dd }
+.dialog-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: .6rem; padding: env(safe-area-inset-top) 8px 0 7%;
+  background: var(--enamel-dark); color: #fff4df;
+  font: 600 .91rem/1.2 var(--ui-font);
+}
+.dialog-bar button {
+  display: grid; place-items: center;
+  width: 46px; height: 46px; border: 0; background: transparent; color: inherit;
+}
+.reply-form { padding: clamp(26px, 5vh, 48px) 7% 12px; text-align: left }
+.reply-form h2 {
+  margin: 0 auto 1.65rem; max-width: 18ch;
+  color: var(--enamel-dark);
+  font: 600 clamp(26px, 6.9vw, 34px)/1.14 var(--serif);
+  text-align: center; text-wrap: balance;
+}
+.reply-form :is(label,legend) { font-weight: 620 }
+.reply-form input:not([type="radio"],[type="hidden"]) {
+  box-sizing: border-box; display: block; width: 100%; min-height: 46px;
+  margin: .35em 0 1.2em; padding: .5em .65em;
+  border: 1px solid #a68c70; background: #fffdf6; border-radius: 7px;
+  color: var(--ribbon-ink); font: 500 1rem/1.45 var(--ui-font);
+}
+.reply-form input:disabled { opacity: .6 }
+.reply-form fieldset { margin: 0 0 1.2em; padding: 0; border: 0 }
+.reply-form legend { padding: 0 0 .28em }
+.reply-form fieldset label { display: flex; min-height: 44px; align-items: center; gap: .55em; font-weight: 500 }
+.reply-form input[type="radio"] { width: 18px; height: 18px; margin: 0; accent-color: var(--enamel) }
+.reply-form .submit {
+  display: flex; width: 100%; min-height: 48px; margin: 0;
+  align-items: center; justify-content: center; gap: .6em; padding: .65em 1em;
+  border: 1px solid var(--enamel-dark); border-radius: 26px;
+  background: linear-gradient(145deg,var(--enamel-light),var(--enamel) 62%,var(--enamel-dark));
+  box-shadow: inset 0 1px #fff4, 0 2px 5px #31161a30; color: var(--on-enamel);
+  font: 650 1rem/1.3 var(--ui-font);
+}
+.reply-form .submit .card-icon { width: 20px; height: 20px }
+.reply-form small { display: block; margin: .8em 0 .3em; font-size: .875rem; text-align: center }
+.dialog-music {
+  display: flex; align-items: center; justify-content: center; gap: .55em;
+  min-height: 44px; margin: 0 auto 20px; padding: 5px 12px;
+  border: 0; background: transparent; color: var(--enamel-dark);
+  font: 650 .91rem/1.3 var(--ui-font);
+}

@@ -32,4 +32,5 @@
   </symbol>
   <symbol id="replay" viewBox="0 0 24 24"><path d="M4 9a8 8 0 1 1 .6 7.2M4 3.5V9h5.5"/></symbol>
   <symbol id="share" viewBox="0 0 24 24"><path d="M12 15.5V3m-4 4 4-4 4 4M6.5 10H4v10h16V10h-2.5"/></symbol>
+  <symbol id="download" viewBox="0 0 24 24"><path d="M12 3v11m-4-4 4 4 4-4M4 15v5h16v-5"/></symbol>
 </svg>

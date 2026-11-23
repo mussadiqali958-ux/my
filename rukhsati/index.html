@@ -13,85 +13,87 @@
   <meta property="og:url" content="https://mussadiqali958-ux.github.io/my/rukhsati/">
   <meta property="og:image" content="https://mussadiqali958-ux.github.io/my/rukhsati/assets/preview.jpg">
   <link rel="canonical" href="https://mussadiqali958-ux.github.io/my/rukhsati/">
-  <link rel="preload" href="assets/envelope.webp" as="image" fetchpriority="high">
-  <link rel="stylesheet" href="invitation.css">
-  <script src="invitation.js" defer></script>
+  <link rel="preload" href="assets/envelope.webp?v=film2" as="image" fetchpriority="high">
+  <link rel="stylesheet" href="invitation.css?v=film2">
+  <script src="invitation.js?v=film2" defer></script>
 </head>
 <body>
-  <header class="cover" aria-label="Sealed Rukhsati invitation" id="cover" hidden>
+  <header class="cover" id="cover" hidden>
     <div class="envelope">
-      <div class="envelope-pocket" aria-hidden="true"></div>
-      <div class="envelope-insert" aria-hidden="true"><span>M <i>&amp;</i> U</span></div>
-      <div class="envelope-flap" aria-hidden="true"></div>
-      <button class="open-invitation" type="button" id="open">
-        <span class="seal" aria-hidden="true">M<i>&amp;</i>U</span>
-        <span class="open-label">Tap to open</span>
-      </button>
+      <video id="opening-film" preload="auto" muted playsinline disablepictureinpicture poster="assets/envelope.webp?v=film2" aria-hidden="true"><source src="assets/opening.mp4" type="video/mp4"></video>
+      <button id="open" aria-label="Tap the wax seal to open the Rukhsati invitation"></button>
     </div>
   </header>
-  <div class="opening-light" aria-hidden="true"></div>
-
-  <main class="invitation" id="invitation">
-    <header class="title-card" id="welcome">
-      <div class="names">
-        <p class="invitation-label">The Rukhsati of</p>
-        <h1 tabindex="-1" id="couple">Mussadiq <span>&amp;</span> Unmber</h1>
-        <time datetime="2026-12-26">Saturday, 26 December 2026</time>
-      </div>
-      <a class="scroll-link" href="#details">View invitation <span aria-hidden="true">↓</span></a>
+  <main id="invitation">
+    <header class="hero" id="welcome">
+      <div class="event-title"><p>Rukhsati Day</p><time datetime="2026-12-26">26.12.26</time></div>
+      <h1 id="couple" tabindex="-1">Mussadiq <span>&amp;</span> Unmber</h1>
+      <a href="#details" class="scroll">Scroll down<i aria-hidden="true"></i></a>
     </header>
-
-    <nav class="card-nav" aria-label="Invitation sections">
-      <a href="#details">Details</a>
-      <a href="#venue">Venue</a>
-      <a href="#contacts">Contact</a>
-      <button type="button" id="music-toggle" aria-pressed="false" hidden>Music</button>
-    </nav>
-
-    <section class="page event-section" id="details" aria-labelledby="event-heading">
-      <p class="basmala" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
-      <h2 id="event-heading">Join us for our Rukhsati</h2>
-      <p>We would love to celebrate this day with you.</p>
-      <div class="countdown" id="countdown" hidden>
-        <h3>Until we celebrate</h3>
-        <div class="countdown-units" role="timer" aria-live="off">
-          <span><b data-unit="day">–</b>Days</span>
-          <span><b data-unit="hour">–</b>Hours</span>
-          <span><b data-unit="minute">–</b>Minutes</span>
-          <span><b data-unit="second">–</b>Seconds</span>
-        </div>
-      </div>
-      <div class="schedule">
-        <h3>The wedding day</h3>
-        <p class="schedule-date"><time datetime="2026-12-26">Saturday, 26 December 2026</time></p>
-        <p class="event-time"><time datetime="2026-12-26T12:30:00+05:00">12:30 PM</time> to <time datetime="2026-12-26T16:00:00+05:00">4:00 PM</time></p>
-        <p class="local-time">Pakistan time</p>
+    <section class="panel letter flowers" id="details">
+      <h2>Mussadiq &amp; Unmber</h2>
+      <p class="script subtitle">cordially invite you</p>
+      <p>to celebrate their Rukhsati on<br><time datetime="2026-12-26">Saturday, 26 December 2026</time>.</p>
+    </section>
+    <section class="panel count" id="countdown" hidden>
+      <h2>The Celebration Begins In</h2>
+      <div class="clock" role="timer" aria-live="off">
+        <span><b>00</b>Days</span><span><b>00</b>Hours</span><span><b>00</b>Minutes</span><span><b>00</b>Seconds</span>
       </div>
     </section>
-
-    <section class="page venue-section" id="venue" aria-labelledby="venue-heading">
-      <img class="venue-art" src="assets/pavilion.webp" alt="" width="900" height="600" loading="lazy">
-      <h2 id="venue-heading">The venue</h2>
-      <p class="venue-name">Raya Orchard Marquee</p>
+    <section class="panel schedule">
+      <h2 class="ornament">Schedule of Events</h2>
+      <ol class="timeline">
+        <li><time datetime="2026-12-26T12:30:00+05:00">12:30 PM</time><span>Rukhsati<br>celebration begins</span></li>
+        <li><time datetime="2026-12-26T16:00:00+05:00">4:00 PM</time><span>Celebration ends</span></li>
+      </ol>
+    </section>
+    <section class="panel location" id="venue">
+      <h2>Location</h2><div class="flourish" aria-hidden="true">❧</div>
+      <h3>Raya Orchard Marquee</h3>
+      <p>Saturday, 26 December 2026 at 12:30 PM</p>
       <address>Muhammadpura, Gujranwala</address>
-      <a class="action" href="https://www.google.com/maps/place/RAYA+ORCHARD+MARQUEE/data=!4m2!3m1!1s0x0:0xc7ba981d74468dbe?sa=X&amp;ved=1t:2428&amp;ictx=111" target="_blank" rel="noopener">Open in Google Maps <span aria-hidden="true">↗</span></a>
-      <button type="button" id="map-toggle" class="map-toggle" aria-expanded="false" aria-controls="venue-map" hidden>Preview map</button>
-      <div id="venue-map" hidden></div>
+      <img class="pavilion" src="assets/pavilion.webp" alt="" width="900" height="600" loading="lazy">
+      <div class="map">
+        <iframe src="https://maps.google.com/maps?q=32.1816308,74.1478745&amp;z=16&amp;output=embed" title="Map of Raya Orchard Marquee in Gujranwala" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <a class="map-link" href="https://www.google.com/maps/place/RAYA+ORCHARD+MARQUEE/data=!4m2!3m1!1s0x0:0xc7ba981d74468dbe?sa=X&amp;ved=1t:2428&amp;ictx=111" target="_blank" rel="noopener">Open in Google Maps</a>
     </section>
-
-    <footer class="page closing-page" id="contacts">
-      <picture>
-        <img class="guests" src="assets/guests.webp" width="1000" height="667" loading="lazy" alt="Illustrated Pakistani wedding guests in sherwanis, shalwar kameez, lehengas and embroidered dupattas">
-      </picture>
-      <h2>Guest contacts</h2>
-      <ul class="contact-list">
-        <li><a href="tel:+923416203644"><span>Muhammad Ashraf</span><span>0341 6203644</span></a></li>
-        <li><a href="tel:+923135533703"><span>Umair Ashraf</span><span>0313 5533703</span></a></li>
-        <li><a href="tel:+923135531628"><span>Ammad Ashraf</span><span>0313 5531628</span></a></li>
+    <section class="panel flowers contact" id="contacts">
+      <h2>Family Contacts</h2>
+      <ul>
+        <li><a href="tel:+923416203644">Muhammad Ashraf <span>0341 6203644</span></a></li>
+        <li><a href="tel:+923135533703">Umair Ashraf <span>0313 5533703</span></a></li>
+        <li><a href="tel:+923135531628">Ammad Ashraf <span>0313 5531628</span></a></li>
       </ul>
-      <button class="replay" id="replay" type="button" hidden>Replay opening</button>
+      <img class="guests" src="assets/guests.webp" width="1000" height="667" loading="lazy" alt="Wedding guests wearing Pakistani sherwanis, lehengas and dupattas">
+    </section>
+    <footer class="panel closing flowers">
+      <h2>Confirm Your Attendance</h2>
+      <p>To help us prepare for a joyful celebration,<br>kindly confirm your attendance.</p>
+      <a class="rsvp" id="open-rsvp" href="https://wa.me/923416203644">
+        <img src="assets/rsvp.webp" alt="RSVP" width="81" height="97">
+        <i aria-hidden="true"></i><span>Click to open</span>
+      </a>
+      <p class="farewell script">Hope to see you there!<br>Mussadiq &amp; Unmber</p>
     </footer>
   </main>
-  <audio id="music" src="assets/refrain.mp3" preload="auto" loop></audio>
+  <button class="music" id="music-toggle" type="button" aria-label="Play music" hidden><i aria-hidden="true"></i></button>
+  <audio id="music" src="assets/soundtrack.m4a" preload="auto" loop></audio>
+  <dialog id="reply" aria-labelledby="reply-title">
+    <div class="dialog-bar"><button id="close-rsvp" type="button" aria-label="Close RSVP">×</button></div>
+    <form id="reply-form">
+      <h2 id="reply-title">Confirm Your Attendance</h2>
+      <label for="guest-name">Your name</label><input id="guest-name" name="guest" autocomplete="name" required maxlength="100">
+      <fieldset><legend>Will you be attending?</legend>
+        <label><input type="radio" name="attending" value="yes" required> Accepts with pleasure</label>
+        <label><input type="radio" name="attending" value="no"> Declines with regret</label>
+      </fieldset>
+      <label for="guest-count">Number of Guests Attending</label><input type="number" id="guest-count" name="count" value="1" min="1" step="1" required>
+      <button class="submit" type="submit">Submit</button>
+      <small>Send your reply to Muhammad Ashraf on WhatsApp.</small>
+    </form>
+    <button class="music" id="reply-music" aria-label="Pause music" type="button"><i aria-hidden="true"></i></button>
+  </dialog>
 </body>
 </html>

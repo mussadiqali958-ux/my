@@ -1,105 +1,114 @@
 'use strict';
 
 const cover = document.querySelector('#cover');
-const openButton = document.querySelector('#open');
-const invitation = document.querySelector('#invitation');
+const main = document.querySelector('main');
+const film = document.querySelector('#opening-film');
 const music = document.querySelector('#music');
-const musicToggle = document.querySelector('#music-toggle');
-const replay = document.querySelector('#replay');
-const mapToggle = document.querySelector('#map-toggle');
-const venueMap = document.querySelector('#venue-map');
-const countdown = document.querySelector('#countdown');
-const units = [...countdown.querySelectorAll('[data-unit]')];
-const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-const start = Date.parse('2026-12-26T12:30:00+05:00');
+const opener = document.querySelector('#open');
+const musicButtons = [...document.querySelectorAll('.music')];
+const prefersStill = matchMedia('(prefers-reduced-motion: reduce)');
 let opening = false;
-let countdownTimer;
+let fallbackTimer;
+let completed = false;
 
-function syncMusicButton() {
-  musicToggle.setAttribute('aria-pressed', String(!music.paused));
-  musicToggle.setAttribute('aria-label', music.paused ? 'Play music' : 'Pause music');
-}
-
-function playMusic() {
-  music.play()?.catch(syncMusicButton);
-}
-
-function updateCountdown() {
-  let remaining = Math.ceil((start - Date.now()) / 1000);
-  countdown.hidden = remaining <= 0;
-  if (countdown.hidden) {
-    clearInterval(countdownTimer);
-    return;
-  }
-  [86400, 3600, 60, 1].forEach((period, index) => {
-    units[index].textContent = String(Math.floor(remaining / period)).padStart(2, '0');
-    remaining %= period;
-  });
-}
-
-function showCard() {
-  cover.hidden = true;
-  cover.classList.remove('opening');
+function showInvitation() {
+  if (completed) return;
+  completed = true;
+  clearTimeout(fallbackTimer);
+  cover.classList.add('reveal');
+  main.inert = false;
   document.body.classList.remove('sealed');
-  invitation.inert = false;
-  musicToggle.hidden = false;
-  replay.hidden = false;
-  opening = false;
-  clearInterval(countdownTimer);
-  countdownTimer = setInterval(updateCountdown, 1000);
-  updateCountdown();
+  musicButtons[0].hidden = false;
+  setTimeout(() => {
+    cover.hidden = true;
+    film.pause();
+    document.querySelector('#couple').focus({preventScroll: true});
+  }, prefersStill.matches ? 0 : 620);
 }
 
-function showCover() {
-  clearInterval(countdownTimer);
-  invitation.inert = true;
-  document.body.classList.add('sealed');
-  cover.hidden = false;
-  if (location.hash) history.replaceState(null, '', location.pathname + location.search);
-  window.scrollTo({ top: 0, behavior: 'instant' });
+function syncMusic() {
+  for (const button of musicButtons) {
+    button.classList.toggle('playing', !music.paused);
+    button.setAttribute('aria-label', music.paused ? 'Play music' : 'Pause music');
+  }
 }
 
-openButton.addEventListener('click', async () => {
+function playMusic() { music.play().catch(syncMusic); }
+for (const button of musicButtons) {
+  button.addEventListener('click', () => { if (music.paused) playMusic(); else music.pause(); });
+}
+for (const event of ['play','pause','error']) music.addEventListener(event, syncMusic);
+window.addEventListener('pagehide', () => music.pause());
+
+opener.addEventListener('click', () => {
   if (opening) return;
   opening = true;
   playMusic();
-  if (!reducedMotion.matches) {
-    cover.classList.add('opening');
-    const animation = cover.getAnimations?.().find(item => item.animationName === 'cover-reveal');
-    await animation?.finished.catch(() => {});
-  }
-  showCard();
-  document.querySelector('#couple').focus({ preventScroll: true });
+  if (prefersStill.matches) { showInvitation(); return; }
+  fallbackTimer = setTimeout(showInvitation, 9200);
+  film.play().catch(showInvitation);
 });
+film.addEventListener('ended', showInvitation);
+film.addEventListener('error', () => { if (opening) showInvitation(); });
 
-replay.addEventListener('click', () => {
-  music.pause();
-  music.currentTime = 0;
-  showCover();
-  openButton.focus({ preventScroll: true });
-});
+if (location.hash && document.getElementById(location.hash.slice(1))) {
+  musicButtons[0].hidden = false;
+} else {
+  document.body.classList.add('sealed');
+  cover.hidden = false;
+  main.inert = true;
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  window.scrollTo({top:0,behavior:'instant'});
+}
 
-musicToggle.addEventListener('click', () => {
-  if (music.paused) playMusic();
-  else music.pause();
-});
-mapToggle.hidden = false;
-mapToggle.addEventListener('click', () => {
-  const showing = venueMap.hidden;
-  if (showing && !venueMap.firstElementChild) {
-    const frame = document.createElement('iframe');
-    frame.title = 'Map of Raya Orchard Marquee';
-    frame.src = 'https://maps.google.com/maps?q=32.1816308,74.1478745&z=16&output=embed';
-    venueMap.append(frame);
-  }
-  venueMap.hidden = !showing;
-  mapToggle.setAttribute('aria-expanded', String(showing));
-  mapToggle.textContent = showing ? 'Hide map' : 'Preview map';
-});
-for (const event of ['play', 'pause', 'error']) music.addEventListener(event, syncMusicButton);
-window.addEventListener('pagehide', () => music.pause());
-syncMusicButton();
+const countdown = document.querySelector('#countdown');
+const digits = [...countdown.querySelectorAll('.clock b')];
+const start = Date.parse('2026-12-26T12:30:00+05:00');
+function tick() {
+  let seconds = Math.max(0, Math.floor((start - Date.now()) / 1000));
+  countdown.hidden = seconds === 0;
+  [86400,3600,60,1].forEach((unit,i) => {
+    digits[i].textContent = String(Math.floor(seconds / unit)).padStart(2,'0');
+    seconds %= unit;
+  });
+}
+tick();
+setInterval(tick, 1000);
 
-const section = document.getElementById(location.hash.slice(1));
-if (section && invitation.contains(section)) showCard();
-else showCover();
+const timeline = document.querySelector('.timeline');
+let queued = false;
+function trackSchedule() {
+  const rect = timeline.getBoundingClientRect();
+  const position = Math.min(1, Math.max(0, (innerHeight * .52 - rect.top) / rect.height));
+  timeline.style.setProperty('--position', position.toFixed(3));
+  queued = false;
+}
+window.addEventListener('scroll', () => {
+  if (!queued) { queued = true; requestAnimationFrame(trackSchedule); }
+}, {passive:true});
+trackSchedule();
+
+const reply = document.querySelector('#reply');
+const form = document.querySelector('#reply-form');
+const guestCount = form.elements.count;
+document.querySelector('#open-rsvp').addEventListener('click', event => {
+  if (typeof reply.showModal !== 'function') return;
+  event.preventDefault();
+  reply.showModal();
+  document.querySelector('#close-rsvp').focus();
+});
+document.querySelector('#close-rsvp').addEventListener('click', () => reply.close());
+form.addEventListener('change', () => {
+  guestCount.disabled = form.elements.attending.value === 'no';
+  if (guestCount.disabled) guestCount.value = '0';
+  else if (guestCount.value === '0') guestCount.value = '1';
+});
+form.addEventListener('submit', event => {
+  event.preventDefault();
+  const guest = form.elements.guest.value.trim();
+  if (!guest) { form.elements.guest.focus(); return; }
+  const coming = form.elements.attending.value === 'yes';
+  const response = coming ? 'Accepts with pleasure. Guests attending: ' + guestCount.value : 'Declines with regret.';
+  const message = 'Rukhsati RSVP for Mussadiq & Unmber · 26 December 2026\n' + guest + ' — ' + response;
+  window.location.assign('https://wa.me/923416203644?text=' + encodeURIComponent(message));
+});

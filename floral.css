@@ -8,7 +8,7 @@
   --brass: #825525;
   --rose: #84374a;
   --script: var(--serif);
-  --floral-art: url("assets/floral-envelope.webp");
+  --floral-art: url("assets/floral-envelope.webp?v=hd1");
   --reveal-duration: 1.62s;
   --reveal-ease: cubic-bezier(.2,.72,.22,1);
 }
@@ -29,6 +29,8 @@ body { font-family: var(--sans) }
   width: min(100%, 510px, 67vh);
   width: min(100%, 510px, 67svh);
   aspect-ratio: 2 / 3;
+  overflow: hidden;
+  container-type: size;
   isolation: isolate;
   perspective: 1100px;
   background: #184638;
@@ -75,28 +77,26 @@ body { font-family: var(--sans) }
   height: 100%;
 }
 .seal-hit:focus-visible { outline: 3px solid #ffe2a1; outline-offset: -7px }
-.envelope-seal {
+.floral-envelope .envelope-seal {
   position: absolute;
   top: 46.6%;
   left: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: .08em;
-  width: clamp(59px,18%,93px);
-  aspect-ratio: 1;
-  border: 2px solid #e4b669;
-  border-radius: 47% 52% 46% 50%;
-  background: radial-gradient(ellipse at 34% 22%, #ffe1a0, #c79143 64%, #b77d37);
-  color: #301706;
-  box-shadow: inset 0 0 0 4px #9a642f, inset 0 0 0 6px #edc883, 0 8px 16px #0008;
-  transform: translate(-50%,-50%) rotate(-7deg);
-  font: 650 clamp(18px,4vw,26px)/1 var(--serif);
+  width: clamp(74px, 23%, 114px);
+  transform: translate(-50%,-50%) rotate(-6deg);
+  font-size: clamp(26px, 8cqw, 42px);
 }
-.envelope-seal i { font-size: .59em }
+.fold-art {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: max(100%, 66.667cqh);
+  height: 100%;
+  transform: translateX(-50%);
+  perspective: 1100px;
+}
 .envelope-caption {
   position: absolute;
-  top: 56%;
+  top: 57%;
   left: 10%;
   right: 10%;
   display: grid;
@@ -106,7 +106,7 @@ body { font-family: var(--sans) }
 .envelope-title {
   color: #fff1d7;
   text-shadow: 0 2px 10px #062019;
-  font: 650 clamp(19px,5.8vw,31px)/1.1 var(--serif);
+  font: 600 clamp(23px,6.5cqw,34px)/1.12 var(--serif);
 }
 .envelope-title i { color: #ffce8c }
 .envelope-date {
@@ -125,11 +125,11 @@ body { font-family: var(--sans) }
   border: 1px solid #edbd76;
   border-radius: 50px;
   color: #fff4db;
-  background: #0a3129;
+  background: linear-gradient(155deg, #285f4e, #0a3129 70%);
   box-shadow: 0 4px 14px #071a1666;
   font: 650 14px/1.2 var(--sans);
 }
-.tap-caption .icon { width: 15px; height: 15px }
+.tap-caption .card-icon { width: 18px; height: 18px }
 .cover.opening { pointer-events: none; animation: envelope-away var(--reveal-duration) linear both }
 .opening .envelope-flap { animation: flap-lift .88s .06s var(--reveal-ease) both }
 .opening .envelope-letter { animation: letter-rise 1.1s .13s var(--reveal-ease) both }
@@ -164,8 +164,8 @@ body { font-family: var(--sans) }
 @keyframes break-seal { to { opacity: 0; transform: translateY(7px) } }
 
 .butterfly {
-  width: 28px;
-  height: 25px;
+  width: 37px;
+  height: 27px;
   display: flex;
   position: absolute;
   top: 27%;
@@ -179,21 +179,27 @@ body { font-family: var(--sans) }
 .butterfly-wing {
   width: 50%;
   height: 100%;
-  position: relative;
   transform-origin: right 60%;
-  animation: wings .29s ease-in-out 70 alternate;
+  animation: wings .23s ease-in-out 86 alternate;
 }
-.butterfly-wing:nth-child(2) { rotate: y 180deg; transform-origin: center }
-.butterfly-wing::before, .butterfly-wing::after {
+.butterfly-wing::before {
   content: "";
   display: block;
-  position: absolute;
-  background: radial-gradient(ellipse at 26% 23%, #ffdd99, #ef9064 45%, #9c4250 76%);
-  border: 1px solid #723648;
+  width: 100%;
+  height: 100%;
+  background: url("assets/butterfly-wing.svg") center / 100% 100% no-repeat;
 }
-.butterfly-wing::before { inset: 0 0 34% 1px; border-radius: 74% 29% 31% 66%; transform: rotate(-28deg) }
-.butterfly-wing::after { inset: 52% 1px 5% 4px; border-radius: 54% 44% 71% 50% }
-.butterfly-body { position: absolute; top: 36%; left: calc(50% - 1px); width: 2px; height: 13px; background: #532839; border-radius: 50% }
+.butterfly-wing:nth-child(2) { transform-origin: left 60%; animation-direction: alternate-reverse }
+.butterfly-wing:nth-child(2)::before { transform: scaleX(-1) }
+.butterfly-body {
+  position: absolute;
+  width: 2px;
+  height: 11px;
+  left: calc(50% - 1px);
+  top: 36%;
+  border-radius: 60%;
+  background: linear-gradient(#563333,#241c19);
+}
 @keyframes wings { from { transform: rotateY(9deg) } to { transform: rotateY(64deg) } }
 @keyframes butterfly-flight {
   0%, 100% { opacity: 0; top: 34%; left: 13%; transform: rotate(-20deg) }
@@ -216,22 +222,10 @@ body { font-family: var(--sans) }
 .invitation .hero h1 { font-size: clamp(42px,11vw,64px); line-height: .95; letter-spacing: -.035em; margin-top: 10px }
 .invitation .hero-intro { font: italic 600 clamp(20px,5vw,27px)/1.2 var(--serif) }
 .hero-and { margin: .38em 0; color: var(--rose) }
-.card-nav {
-  position: absolute;
-  bottom: max(18px,env(safe-area-inset-bottom));
-  left: 50%;
-  display: flex;
-  align-items: center;
-  transform: translateX(-50%);
-  border: 1px solid #e2ba72;
-  background: var(--deep);
-  color: #fff0d4;
-  border-radius: 30px;
-  box-shadow: 0 6px 18px #261c1866;
+/* Anchor targets clear the sticky invitation ribbon. */
+.walima .invitation section[id], .walima .invitation footer[id] {
+  scroll-margin-top: calc(var(--ribbon-offset) + 8px);
 }
-.card-nav a { padding: 12px 16px; min-height: 44px; font: 650 14px/20px var(--sans); text-decoration: none; white-space: nowrap }
-.card-nav a+a { border-left: 1px solid #ddb67d66 }
-.invitation [id] { scroll-margin-top: max(12px,env(safe-area-inset-top)) }
 .date-section, .reception { background: #fff5e6 }
 .date-section .instruction, .letter-copy, .venue address { font: 450 16px/1.6 var(--sans) }
 .date-section .section-title, .arch-letter .section-title, .closing .section-title, .countdown .section-title, .venue h2 {
@@ -262,4 +256,61 @@ body { font-family: var(--sans) }
   font-size: 11px;
   letter-spacing: .1em;
 }
-.card-nav a:focus-visible { outline-color: #ffdc9b; outline-offset: -4px }
+
+
+/* A portrait leaf for both the opening and the printed invitation. */
+.walima { background: radial-gradient(ellipse at center top, #325246, #16342d 72%) }
+.walima .invitation { container-type: inline-size }
+.walima .hero {
+  height: clamp(450px, calc(100svh - var(--ribbon-offset)), 1000px);
+  max-height: none;
+}
+.walima .hero-words { top: 19%; left: 8%; right: 8% }
+.walima .hero-intro { font: italic 500 clamp(23px,6.1cqw,31px)/1.18 var(--serif) }
+.walima .hero h1 {
+  font-size: clamp(45px, min(14.2cqw, 9.35svh), 74px);
+  line-height: .96;
+  margin-top: .25em;
+}
+.walima .hero-and { margin: .27em auto; font-size: .45em }
+.hero-dateline {
+  margin: 1.15em auto 0;
+  color: #3b4937;
+  font: 650 clamp(13px, 3.5cqw, 16px)/1.4 var(--ui-font);
+  letter-spacing: .015em;
+  font-variant-numeric: lining-nums;
+}
+.date-grid { max-width: 395px; gap: clamp(9px, 3cqw, 15px) }
+.tile { border-radius: 8px; box-shadow: 0 3px 7px #73502829, inset 0 0 0 3px #fff4d7 }
+.date-value { font-variant-numeric: lining-nums }
+.date-section .instruction { max-width: 30ch; margin-inline: auto }
+.tile-label, .reception-time span, .time-grid small, .venue .label { font-size: .75rem; letter-spacing: .07em }
+.walima .countdown { background: linear-gradient(135deg, #285b4a, #123e32 63%, #11392f) }
+.venue-actions .solid-action {
+  background: linear-gradient(145deg, #346951, #154437 65%, #0f382e);
+  border-color: #123a2e;
+  border-radius: 24px;
+  color: #fff2d6;
+  font: 600 .94rem/1.25 var(--ui-font);
+  box-shadow: inset 0 1px 1px #efd69e66, 0 2px 5px #1b322329;
+}
+.venue-actions .card-icon, .guest-actions .card-icon { width: 19px; height: 19px }
+.venue-actions .map-toggle, .arch-letter .text-action, .guest-actions button { font: 600 .875rem/1.2 var(--ui-font) }
+.venue-actions .map-toggle { color: #365040 }
+.contact-number { font: 650 1.05rem/1.4 var(--ui-font); margin: .3em auto; color: #284c3c }
+.contact-number .button-medal { width: 32px; height: 32px }
+.guest-actions { gap: 6px 12px; border: 0; padding-top: 0 }
+.guest-actions button {
+  border: 1px solid #c2a386;
+  border-radius: 25px;
+  background: #fff5eb;
+  padding: 8px 13px;
+  box-shadow: inset 0 1px #fff, 0 2px 4px #5c3d2a16;
+}
+@media (orientation: portrait) and (max-width:600px) {
+  .walima .floral-envelope { height: 100% }
+}
+@media (orientation: landscape) and (max-height:530px) {
+  .walima .hero { height: clamp(420px,125vw,800px) }
+  .walima .hero h1 { font-size: clamp(43px,13cqw,64px) }
+}

@@ -20,7 +20,7 @@
     sound.setAttribute('aria-pressed', String(playing));
     sound.setAttribute('aria-label', action);
     sound.title = action;
-    sound.querySelector('use').setAttribute('href', playing ? '#i-pause' : '#i-play');
+    sound.querySelector('use').setAttribute('href', playing ? 'assets/card-icons.svg#pause' : 'assets/card-icons.svg#play');
   }
 
   function playMusic() {
@@ -231,14 +231,14 @@
 
   const mapButton=$('#preview-map'), mapArea=$('#map-area');
   function closeMap(){
-    mapArea.hidden=true;mapArea.replaceChildren();mapButton.setAttribute('aria-expanded','false');mapButton.textContent='Preview map';
+    mapArea.hidden=true;mapArea.replaceChildren();mapButton.setAttribute('aria-expanded','false');mapButton.querySelector('span').textContent='Preview map';
   }
   mapButton.addEventListener('click',()=>{
     if(!mapArea.hidden){closeMap();return;}
     const map=document.createElement('iframe');map.title='Map showing Green Leaf Castle on Lahore–Kasur Road';
     map.src='https://maps.google.com/maps?q=31.4143125%2C74.3599375&z=16&output=embed';
     map.referrerPolicy='no-referrer-when-downgrade';mapArea.replaceChildren(map);mapArea.hidden=false;
-    mapButton.setAttribute('aria-expanded','true');mapButton.textContent='Hide map';
+    mapButton.setAttribute('aria-expanded','true');mapButton.querySelector('span').textContent='Hide map';
   });
   mapButton.hidden=false;
 

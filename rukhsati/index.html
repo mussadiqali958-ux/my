@@ -11,25 +11,48 @@
   <meta property="og:description" content="Saturday, 26 December 2026 · 12:30–4:00 PM · Raya Orchard Marquee, Gujranwala">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://mussadiqali958-ux.github.io/my/rukhsati/">
-  <meta property="og:image" content="https://mussadiqali958-ux.github.io/my/rukhsati/assets/preview.jpg">
+  <meta property="og:image" content="https://mussadiqali958-ux.github.io/my/rukhsati/assets/preview.jpg?v=hd1">
+  <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Mussadiq and Unmber’s Rukhsati invitation on burgundy brocade">
   <link rel="canonical" href="https://mussadiqali958-ux.github.io/my/rukhsati/">
-  <link rel="preload" href="assets/envelope.webp?v=film2" as="image" fetchpriority="high">
-  <link rel="stylesheet" href="invitation.css?v=film2">
-  <script src="invitation.js?v=film2" defer></script>
+  <link rel="preload" href="assets/burgundy-brocade.webp" as="image" fetchpriority="high">
+  <link rel="stylesheet" href="invitation.css?v=hd1">
+  <link rel="stylesheet" href="../assets/card-controls.css?v=hd1">
+  <script src="invitation.js?v=hd1" defer></script>
+  <script src="../assets/card-navigation.js?v=hd1" defer></script>
+  <noscript><style>.cover {display:none} body.sealed {overflow:auto} #replay {display:none}</style></noscript>
 </head>
-<body>
-  <header class="cover" id="cover" hidden>
+<body class="rukhsati sealed">
+  <header class="cover" id="cover" aria-label="Sealed Rukhsati invitation">
     <div class="envelope">
-      <video id="opening-film" preload="auto" muted playsinline disablepictureinpicture poster="assets/envelope.webp?v=film2" aria-hidden="true"><source src="assets/opening.mp4" type="video/mp4"></video>
-      <button id="open" aria-label="Tap the wax seal to open the Rukhsati invitation"></button>
+      <div class="fold backlight" aria-hidden="true"></div>
+      <div class="fold paper side left" aria-hidden="true"></div>
+      <div class="fold paper side right" aria-hidden="true"></div>
+      <div class="fold paper lower" aria-hidden="true"></div>
+      <div class="fold paper upper" aria-hidden="true"></div>
+      <div class="fold glimmer" aria-hidden="true"></div>
+      <div class="fold seal-track" aria-hidden="true">
+        <span class="wax seal-face"><span>M<i>&amp;</i>U</span></span>
+      </div>
+      <button class="open-hit" id="open" type="button" aria-label="Tap the wax seal to open the Rukhsati invitation">
+        <span class="tap-label"><svg class="card-icon" aria-hidden="true" focusable="false"><use href="../assets/card-icons.svg#tap"/></svg>Tap to open</span>
+      </button>
+      <button id="skip" class="skip" type="button" hidden>Skip opening</button>
     </div>
   </header>
   <main id="invitation">
     <header class="hero" id="welcome">
-      <div class="event-title"><p>Rukhsati Day</p><time datetime="2026-12-26">26.12.26</time></div>
+      <img class="hero-art" src="assets/swan-garden.webp" alt="" width="911" height="1727" decoding="async">
+      <div class="event-title"><p>Rukhsati Day</p><time datetime="2026-12-26">26 December 2026</time></div>
       <h1 id="couple" tabindex="-1">Mussadiq <span>&amp;</span> Unmber</h1>
-      <a href="#details" class="scroll">Scroll down<i aria-hidden="true"></i></a>
+      <a href="#details" class="scroll">Scroll down<svg class="card-icon" aria-hidden="true" focusable="false"><use href="../assets/card-icons.svg#chevron"/></svg></a>
     </header>
+    <nav class="guest-nav" aria-label="Invitation details">
+      <a href="#schedule"><span class="button-medal"><svg class="card-icon" aria-hidden="true" focusable="false"><use href="../assets/card-icons.svg#clock"/></svg></span><span>Schedule</span></a>
+      <a href="#venue"><span class="button-medal"><svg class="card-icon" aria-hidden="true" focusable="false"><use href="../assets/card-icons.svg#pin"/></svg></span><span>Venue</span></a>
+      <a href="#contacts"><span class="button-medal"><svg class="card-icon" aria-hidden="true" focusable="false"><use href="../assets/card-icons.svg#phone"/></svg></span><span>Contact</span></a>
+      <button type="button" id="music-toggle" class="nav-music" aria-label="Play music" aria-pressed="false" hidden><span class="button-medal"><svg class="card-icon" aria-hidden="true" focusable="false"><use href="../assets/card-icons.svg#play"/></svg></span><span>Music</span></button>
+    </nav>
     <section class="panel letter flowers" id="details">
       <h2>Mussadiq &amp; Unmber</h2>
       <p class="script subtitle">cordially invite you</p>
@@ -41,30 +64,31 @@
         <span><b>00</b>Days</span><span><b>00</b>Hours</span><span><b>00</b>Minutes</span><span><b>00</b>Seconds</span>
       </div>
     </section>
-    <section class="panel schedule">
-      <h2 class="ornament">Schedule of Events</h2>
+    <section class="panel schedule" id="schedule">
+      <h2>Schedule of Events</h2>
+      <p class="schedule-date"><time datetime="2026-12-26">Saturday, 26 December 2026</time></p>
       <ol class="timeline">
-        <li><time datetime="2026-12-26T12:30:00+05:00">12:30 PM</time><span>Rukhsati<br>celebration begins</span></li>
+        <li><time datetime="2026-12-26T12:30:00+05:00">12:30 PM</time><span>Rukhsati begins</span></li>
         <li><time datetime="2026-12-26T16:00:00+05:00">4:00 PM</time><span>Celebration ends</span></li>
       </ol>
     </section>
     <section class="panel location" id="venue">
-      <h2>Location</h2><div class="flourish" aria-hidden="true">❧</div>
+      <h2>Location</h2>
       <h3>Raya Orchard Marquee</h3>
       <p>Saturday, 26 December 2026 at 12:30 PM</p>
       <address>Muhammadpura, Gujranwala</address>
-      <img class="pavilion" src="assets/pavilion.webp" alt="" width="900" height="600" loading="lazy">
+      <img class="pavilion" src="assets/pavilion.webp" alt="" width="900" height="507" loading="lazy">
       <div class="map">
         <iframe src="https://maps.google.com/maps?q=32.1816308,74.1478745&amp;z=16&amp;output=embed" title="Map of Raya Orchard Marquee in Gujranwala" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
-      <a class="map-link" href="https://www.google.com/maps/place/RAYA+ORCHARD+MARQUEE/data=!4m2!3m1!1s0x0:0xc7ba981d74468dbe?sa=X&amp;ved=1t:2428&amp;ictx=111" target="_blank" rel="noopener">Open in Google Maps</a>
+      <a class="directions" href="https://www.google.com/maps/place/RAYA+ORCHARD+MARQUEE/data=!4m2!3m1!1s0x0:0xc7ba981d74468dbe?sa=X&amp;ved=1t:2428&amp;ictx=111" target="_blank" rel="noopener"><svg class="card-icon" aria-hidden="true" focusable="false"><use href="../assets/card-icons.svg#pin"/></svg>Open in Google Maps</a>
     </section>
     <section class="panel flowers contact" id="contacts">
       <h2>Family Contacts</h2>
       <ul>
-        <li><a href="tel:+923416203644">Muhammad Ashraf <span>0341 6203644</span></a></li>
-        <li><a href="tel:+923135533703">Umair Ashraf <span>0313 5533703</span></a></li>
-        <li><a href="tel:+923135531628">Ammad Ashraf <span>0313 5531628</span></a></li>
+        <li><a class="contact-link" href="tel:+923416203644"><span class="contact-person">Muhammad Ashraf<span>0341 6203644</span></span><span class="button-medal"><svg class="card-icon" aria-hidden="true" focusable="false"><use href="../assets/card-icons.svg#phone"/></svg></span></a></li>
+        <li><a class="contact-link" href="tel:+923135533703"><span class="contact-person">Umair Ashraf<span>0313 5533703</span></span><span class="button-medal"><svg class="card-icon" aria-hidden="true" focusable="false"><use href="../assets/card-icons.svg#phone"/></svg></span></a></li>
+        <li><a class="contact-link" href="tel:+923135531628"><span class="contact-person">Ammad Ashraf<span>0313 5531628</span></span><span class="button-medal"><svg class="card-icon" aria-hidden="true" focusable="false"><use href="../assets/card-icons.svg#phone"/></svg></span></a></li>
       </ul>
       <img class="guests" src="assets/guests.webp" width="1000" height="667" loading="lazy" alt="Wedding guests wearing Pakistani sherwanis, lehengas and dupattas">
     </section>
@@ -72,16 +96,16 @@
       <h2>Confirm Your Attendance</h2>
       <p>To help us prepare for a joyful celebration,<br>kindly confirm your attendance.</p>
       <a class="rsvp" id="open-rsvp" href="https://wa.me/923416203644">
-        <img src="assets/rsvp.webp" alt="RSVP" width="81" height="97">
-        <i aria-hidden="true"></i><span>Click to open</span>
+        <span class="wax wine"><span>RSVP</span></span>
+        <span class="rsvp-caption">Tap to reply</span>
       </a>
       <p class="farewell script">Hope to see you there!<br>Mussadiq &amp; Unmber</p>
+      <button id="replay" class="replay" type="button"><svg class="card-icon" aria-hidden="true" focusable="false"><use href="../assets/card-icons.svg#replay"/></svg>Replay opening</button>
     </footer>
   </main>
-  <button class="music" id="music-toggle" type="button" aria-label="Play music" hidden><i aria-hidden="true"></i></button>
-  <audio id="music" src="assets/soundtrack.m4a" preload="auto" loop></audio>
+  <audio id="music" src="assets/soundtrack.m4a?v=music-only" preload="auto" loop></audio>
   <dialog id="reply" aria-labelledby="reply-title">
-    <div class="dialog-bar"><button id="close-rsvp" type="button" aria-label="Close RSVP">×</button></div>
+    <div class="dialog-bar"><button id="close-rsvp" type="button" aria-label="Close RSVP"><svg class="card-icon" aria-hidden="true" focusable="false"><use href="../assets/card-icons.svg#close"/></svg></button></div>
     <form id="reply-form">
       <h2 id="reply-title">Confirm Your Attendance</h2>
       <label for="guest-name">Your name</label><input id="guest-name" name="guest" autocomplete="name" required maxlength="100">
@@ -90,10 +114,10 @@
         <label><input type="radio" name="attending" value="no"> Declines with regret</label>
       </fieldset>
       <label for="guest-count">Number of Guests Attending</label><input type="number" id="guest-count" name="count" value="1" min="1" step="1" required>
-      <button class="submit" type="submit">Submit</button>
-      <small>Send your reply to Muhammad Ashraf on WhatsApp.</small>
+      <button class="submit" type="submit"><svg class="card-icon" aria-hidden="true" focusable="false"><use href="../assets/card-icons.svg#send"/></svg>Continue to WhatsApp</button>
+      <small>Your reply will open in a chat with Muhammad Ashraf.</small>
     </form>
-    <button class="music" id="reply-music" aria-label="Pause music" type="button"><i aria-hidden="true"></i></button>
+    <button class="dialog-music" id="reply-music" aria-label="Play music" aria-pressed="false" type="button"><span class="button-medal"><svg class="card-icon" aria-hidden="true" focusable="false"><use href="../assets/card-icons.svg#play"/></svg></span>Music</button>
   </dialog>
 </body>
 </html>

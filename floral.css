@@ -68,7 +68,7 @@ body { font-family: var(--sans) }
   transform-origin: center top;
 }
 .envelope-letter span { font: italic 500 18px var(--serif) }
-.envelope-letter b { font: 650 clamp(22px,6vw,34px)/1.12 var(--serif) }
+.envelope-letter b { font: italic 560 clamp(22px,6vw,34px)/1.12 var(--serif) }
 .seal-hit {
   position: absolute;
   z-index: 4;
@@ -106,14 +106,9 @@ body { font-family: var(--sans) }
 .envelope-title {
   color: #fff1d7;
   text-shadow: 0 2px 10px #062019;
-  font: 600 clamp(23px,6.5cqw,34px)/1.12 var(--serif);
+  font: italic 560 clamp(24px,6.6cqw,34px)/1.16 var(--serif);
 }
 .envelope-title i { color: #ffce8c }
-.envelope-date {
-  color: #ffdfaa;
-  text-shadow: 0 2px 8px #062019;
-  font: 620 clamp(14px,3.55vw,16px)/1.25 var(--sans);
-}
 .cover .tap-caption {
   position: static;
   display: inline-flex;
@@ -216,7 +211,7 @@ body { font-family: var(--sans) }
 .invitation .hero-words { top: 18%; left: 10%; right: 10% }
 .invitation .hero h1, .section-title, .arch-letter .section-title, .closing .section-title, .countdown .section-title {
   font-family: var(--serif);
-  font-weight: 650;
+  font-weight: 590;
   -webkit-text-stroke: 0;
 }
 .invitation .hero h1 { font-size: clamp(42px,11vw,64px); line-height: .95; letter-spacing: -.035em; margin-top: 10px }
@@ -229,8 +224,9 @@ body { font-family: var(--sans) }
 .date-section, .reception { background: #fff5e6 }
 .date-section .instruction, .letter-copy, .venue address { font: 520 1rem/1.58 var(--sans) }
 .date-section .section-title, .arch-letter .section-title, .closing .section-title, .countdown .section-title, .venue h2 {
-  font-size: clamp(29px,8vw,45px);
-  letter-spacing: -.033em;
+  font-size: clamp(25px,6.7cqw,34px);
+  line-height: 1.19;
+  letter-spacing: -.022em;
 }
 .signature { font: italic 600 clamp(19px,5.5vw,28px)/1.2 var(--serif); -webkit-text-stroke: 0; color: var(--rose) }
 .countdown { background: var(--pine) }
@@ -246,7 +242,6 @@ body { font-family: var(--sans) }
 @media (orientation:landscape) and (max-height:500px) {
   .envelope-caption { top:61%; gap:4px }
   .envelope-title { font-size:clamp(13px,5vh,22px) }
-  .envelope-date { display: none }
 }
 @media (prefers-reduced-motion:reduce) {
   .butterfly { display:none }
@@ -266,20 +261,13 @@ body { font-family: var(--sans) }
   max-height: none;
 }
 .walima .hero-words { top: 19%; left: 8%; right: 8% }
-.walima .hero-intro { font: italic 590 clamp(23px,6.1cqw,31px)/1.18 var(--serif) }
+.walima .hero-intro { font: italic 570 clamp(24px,6.6cqw,34px)/1.16 var(--serif) }
 .walima .hero h1 {
-  font-size: clamp(45px, min(14.2cqw, 9.35svh), 74px);
-  line-height: .96;
+  font: italic 560 clamp(40px,min(13.5cqw,9.45svh),70px)/1.03 var(--serif);
+  letter-spacing: -.035em;
   margin-top: .25em;
 }
-.walima .hero-and { margin: .27em auto; font-size: .45em }
-.hero-dateline {
-  margin: 1.15em auto 0;
-  color: #3b4937;
-  font: 650 clamp(13px, 3.5cqw, 16px)/1.4 var(--ui-font);
-  letter-spacing: .015em;
-  font-variant-numeric: lining-nums;
-}
+.walima .hero-and { margin: .27em auto; font: italic 400 .39em/1 var(--serif) }
 .date-grid { max-width: 395px; gap: clamp(9px, 3cqw, 15px) }
 .tile { border-radius: 8px; box-shadow: 0 3px 7px #73502829, inset 0 0 0 3px #fff4d7 }
 .date-value { font-variant-numeric: lining-nums }
@@ -326,3 +314,5 @@ body { font-family: var(--sans) }
   .walima .hero { height: clamp(420px,125vw,800px) }
   .walima .hero h1 { font-size: clamp(43px,13cqw,64px) }
 }
+
+.walima .letter-copy, .walima .venue address, .walima .attendance p { font: 500 clamp(1rem,4.35cqw,1.16rem)/1.55 var(--serif) }
